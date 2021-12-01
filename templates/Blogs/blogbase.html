@@ -1,0 +1,211 @@
+<!doctype html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous">
+        </script>
+    <!-- Bootstrap CSS -->
+    <link rel="icon" type="image/png" sizes="50×20" href="{% static 'images/favicon.png'%}">
+    <link rel="stylesheet" href="{% static 'css/FrontendCheatsheet.css' %}">
+    <link rel="stylesheet" href="{% static 'css/Frontend_Style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/FrontendColorProperties.css' %}">
+
+    <link rel="stylesheet" href="{% static 'css/blogstyle.css' %}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+    integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet">
+    <title>{% block title %} DI | Blogs {% endblock %}</title>
+</head>
+
+<body>
+
+    <header>
+
+        <!--Banner-->
+        <div class="banner" style="background-color: black; border: 4px solid black;">
+            <div class="row g-0">
+                <div class="col-4 col-md-2">
+                    <div class="card" style="background-color: black;">
+                        <img style="height: 46px;" src="{% static 'images/banner23.png' %}" alt="" loading="lazy">
+                    </div>
+
+                </div>
+                <div class="col-1 col-md-4"></div>
+
+                <div class="col-7 col-md-6 pt-1">
+                    <div class="d-flex flex-row-reverse">
+
+                        <div class="" role="group" aria-label="Basic example">
+                            <button type="button" style="margin-right:1rem; border-radius: 1rem; "
+                                class="btn btn-primary btn-sm">
+                                <a href="{% url 'Ehub:YourCart' %}">
+                                    <img style="width:1.2rem; height: 1.3rem;"
+                                        src="{% static 'images/carticon.png' %}"><span class="badge "
+                                        style="color: white;">{{TotalCartItems}}</span>
+                                </a>
+                            </button>
+
+                            {% if request.user.is_authenticated %}
+
+                            <button type="button" style=" border-radius: 1rem;" id="showLogout"
+                                class="btn btn-primary btn-sm">
+                                <span><a style="text-decoration: none; color: white;" href="{% url 'Ehub:logout-user' %}"
+                                        style="color: white;">Logout</a></span>
+                            </button>
+                            {% else %}
+                            <button type="button" style="border-radius: 1rem;" id="showLogin"
+                                class="btn btn-primary btn-sm">
+                                <span><a style="text-decoration: none; color: white;" href="{% url 'Ehub:login-user' %}"
+                                        style="color: white;">Login</a></span>
+                            </button>
+                            {% endif %}
+
+
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+        {% block head %}
+
+        <!--Navbar Section-->
+        <div class="wrapper">
+
+            <nav class="navbar   navbar-expand-lg navbar-dark bg-set">
+                <a class="navbar-brand " href="{% url 'Ehub:home' %}">Home</a>
+        
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
+                  aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                </button>
+        
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                  <ul class="navbar-nav">
+        
+                    <li class="nav-item dropdown">
+                      <a class="nav-link  {% block ActivateVfx %}{% endblock %} dropdown-toggle" href="#"
+                        id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Vfx
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-dark" style="background-color:rgb(22, 22, 22)"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" style="color: white;" href="{% url 'Mvfx:VfxProducts' %}">Vfx</a></li>
+        
+                      </ul>
+                    </li>
+        
+                    <li class="nav-item dropdown">
+                      <a class="nav-link  {% block ActivateSfx %}{% endblock %} dropdown-toggle" href="#"
+                        id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Sfx
+                      </a>
+                      <ul class="dropdown-menu dropdown-menu-dark" style="background-color:rgb(22, 22, 22)"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <li><a class="dropdown-item" style="color: white;" href="{% url 'Msfx:SfxProducts' %}">Sfx</a></li>
+        
+        
+                      </ul>
+                    </li>
+        
+                    <li class="nav-item">
+                      <a class="nav-link {% block ActivateBlogs %}{% endblock %}" href="{% url 'Eblog:blogs' %}">Blogs</a>
+                    </li>
+        
+                  </ul>
+        
+                  <form style="width: 22rem;" action="{% url 'Ehub:search' %}" method="get">
+                    <div class="search-box p-2">
+                      <input class="search-text" type="text" name="query" id="query" placeholder="Search Products...">
+        
+                      <button class="button">
+                        <a class="search-btn" href="">
+                          <i class="fas fa-search"></i>
+                        </a>
+                      </button>
+                    </div>
+                  </form>
+        
+                </div>
+        
+              </nav>
+        
+
+        </div>
+
+    </header>
+    {% endblock %}
+
+    {% block content %} {% endblock %}
+  <!--FOOTER SECTION-->
+  <footer>
+    <div class="footer-elements">
+      <div class="row g-0">
+
+        <div class="col-md-3 col-sm-6 col-xm-3 segment-one">
+
+          <img src="{% static 'images/grey scal banner.png' %} " style=" height:12rem;">
+
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xm-12 segment-two p-5">
+          <h2>About Us</h2>
+          <p class="mb-0" style="color: rgb(156, 156, 156);text-decoration: none;">We provide Vfx,Sfx,Music Spectrums
+            and other Graphics elements at high quality.</p>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xm-12 segment-three p-5">
+          <h2>Way</h2>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item active" style="color: rgb(156, 156, 156);" aria-current="page">Jump to:-</li>
+              <li class="breadcrumb-item active" aria-current="page"><a
+                  style="color: rgb(156, 156, 156);text-decoration: none;" href="{% url 'Ehub:home' %}">Home</a></li>
+
+            </ol>
+          </nav>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-xm-12 segment-four p-5">
+          <h2>Social Links</h2>
+          <a href="https://www.facebook.com/Dimensional-illusions-100247375484205" target="_blank"><i
+              class="fa fa-facebook"></i></a>
+          <a href="https://www.youtube.com/channel/UCG8JsDfV6GkElowMSp-gzSg" target="_blank"><i
+              class="fa fa-youtube"></i></a>
+          <a href="https://twitter.com/DimensionalIlu1" target="_blank"><i class="fa fa-twitter"></i></a>
+        </div>
+
+      </div>
+    </div>
+    <p class="footer-text mb-0 p-4" style="background-color: black;"> ©2020-Present All right reserved by
+      @dimensionalillusions.com </p>
+
+  </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
+        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
+        crossorigin="anonymous"></script>
+    <script src="{% static 'js/LinkerSheets.js' %}" type="text/javascript"></script>
+    <script>
+        var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+        var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+            return new bootstrap.Popover(popoverTriggerEl)
+        })
+    </script>
+</body>
+
+
+</html>

@@ -1,0 +1,50 @@
+{% extends 'dashboard/dashbase.html' %}
+{% load static %}
+{% block title %}
+<title>DI | Dashboard | Add Character</title>
+{% endblock %}
+{% block body %}
+<style>
+    .container {
+        border: 2px grey;
+        border-radius: 2rem;
+    }
+
+    .form-container a {
+        color: black;
+    }
+</style>
+
+<br><br>
+
+<div class="container px-lg-4 p-3" style="background-color: rgb(255, 255, 255); border: 3px solid white;">
+    <h1 class="ml-3">Add Character</h1>
+    <br>
+    <form action="" method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="form-container">
+            {% for field in characterform %}
+
+            {{ field.label_tag }}<br>
+            {{ field }}
+            {% if field.help_text %}
+            <div style="color: grey">{{ field.help_text }}</div>
+            {% endif %}
+            {% for error in field.errors %}
+            <p style="color: red">{{ error }}</p>
+            {% endfor %}
+
+            <hr>
+
+            {% endfor %}
+        </div>
+
+        <input class="btn btn-primary mr-5" type="submit" name="Submit">
+
+        <button class="btn btn-primary"><a href="{% url 'character' %}">Back</a></button>
+    </form>
+
+</div>
+
+
+{% endblock%}

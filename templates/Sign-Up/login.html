@@ -1,0 +1,242 @@
+<!doctype html>
+{% load static %}
+<html lang="en">
+
+<head>
+    {% block title %}
+    <title>DI | LoginPage</title>
+    {% endblock %}
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" sizes="50×20" href="{% static 'images/favicon.png'%}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/FrontendCheatsheet.css' %}">
+    <title>Hello, world!</title>
+</head>
+{% block style %}
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .errorbox {
+        color: red;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    .successbox {
+        color: rgb(255, 255, 255);
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    body {
+        background-image: url('{% static "images/lavaLogo.png" %}');
+        background-size: cover;
+        background-position: center;
+        font-family: sans-serif;
+    }
+
+    input {
+        width: 100%;
+        color: white;
+        display: block;
+        outline: none;
+        border: none;
+        background-color: rgb(0, 0, 0, 0);
+        border-bottom: 1px solid rgb(222, 222, 222);
+    }
+
+    .container-fluid {
+        color: white;
+
+        padding: 3rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .container-fluid .wrapper {
+        width: 25rem;
+        background-color: rgb(0, 0, 0, .7);
+        padding: 4rem;
+        padding-top: 6rem;
+        padding-bottom: 6rem;
+        border-radius: 4rem;
+    }
+
+    .wrapper p {
+        display: inline;
+    }
+
+    .wrapper a {
+        text-decoration: none;
+    }
+
+
+    .btn-custom {
+        display: block;
+        font-size: .9rem;
+        border-radius: 2rem;
+    }
+
+    @media only screen and (max-width:551px) {
+        .container-fluid .wrapper {
+            background-color: rgb(0, 0, 0);
+            padding: 3rem;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            border-radius: 2rem;
+        }
+
+        .errorbox {
+            color: red;
+            font-size: .8rem;
+            text-align: center;
+        }
+
+        .successbox {
+            color: rgb(255, 255, 255);
+            font-size: .8rem;
+            text-align: center;
+        }
+
+        .wrapper p {
+            font-size: .8rem;
+        }
+
+        .wrapper a {
+            font-size: .8rem;
+        }
+
+        .btn-custom {
+            font-size: .8rem;
+        }
+
+        .errorlist {
+            list-style-type: none;
+            color: red;
+            padding-right: 2rem;
+        }
+
+        .msgebox {
+
+            font-size: .8rem;
+
+        }
+
+    }
+
+    @media only screen and (max-width:391px) {
+        .errorbox {
+            color: red;
+            font-size: .6rem;
+            text-align: center;
+        }
+
+        .successbox {
+            color: rgb(255, 255, 255);
+            font-size: .6rem;
+            text-align: center;
+        }
+
+        h3 {
+            font-size: .9rem;
+        }
+
+        .container-fluid {
+            color: white;
+            font-size: .8rem;
+        }
+
+        .wrapper p {
+            font-size: .7rem;
+        }
+
+        .wrapper a {
+            font-size: .7em;
+        }
+
+        .container-fluid .wrapper {
+            background-color: rgb(0, 0, 0);
+            padding: 3rem;
+            padding-top: 3rem;
+            padding-bottom: 3rem;
+            border-radius: 2rem;
+        }
+
+        .btn-custom {
+            font-size: .8rem;
+
+        }
+
+        .msgebox {
+            font-size: .7rem;
+        }
+    }
+</style>
+{% endblock %}
+
+<body>
+
+
+    <div class="container-fluid">
+        <div class="wrapper mt-1">
+            <h3 class="text-center pb-5"><strong>DI-LOGIN</strong> </h3>
+
+            <form action="" autocomplete="on" method="post">
+                {% csrf_token %}
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" placeholder="Enter your Username" autofocus required>
+                <br>
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your Password">
+                <br><br>
+                <input class="btn-lg btn-custom btn-primary" type="submit" value="Login">
+                <br>
+
+                {% if messages %}
+                {% for message in messages %}
+                {% if message.tags == "error" %}
+                <div class="errorbox">
+                    <p1 id="messages">{{message}}!</p1>
+                </div>
+                <br>
+                {% endif %}
+                {% endfor %}
+
+                {% endif %}
+
+                {% if messages %}
+                {% for message in messages %}
+                {% if message.tags == "success" %}
+                <div class="successbox">
+                    <p1 id="messages">{{message}}!</p1>
+                </div>
+                <br>
+                {% endif %}
+                {% endfor %}
+                {% endif %}
+                <p>Don't have a DI account? </p> <a href="{% url 'Ehub:register' %}">Sign Up</a>
+                <br><br>
+                <p>Forget your password? </p> <a href="{% url 'reset_password' %}">Reset password</a>
+
+            </form>
+
+        </div>
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>

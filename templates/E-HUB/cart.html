@@ -1,0 +1,76 @@
+{% extends 'frontend_base.html' %}
+{% block title %}
+<title>DI | Cart </title>
+{% endblock %}
+{% load static %}   
+{% block body%}
+	<div class="row g-0" style="background-color:#007bff ;">
+
+		<div class="col-lg-12" style="color: white;">
+
+			<div class="box-element" style="box-shadow:hsl(0, 0%, 0%)0 0 16px;
+                 background-color:#000; border-radius:4px; padding :10px;">
+
+				<br>
+
+				<div>
+					<a class="btn btn-primary"  style="float: right;" id="change-color" href="{% url 'Ehub:Checkout' %}">checkout &rarr;</a>
+				</div>
+				<br>
+				<br>
+			</div>
+
+			<br class="gx-0">
+
+			<div class="box-element" style="box-shadow:hsl(0, 0%, 1%) 0 0 30px;
+                 background-color:#111111; border-radius:4px; padding :6px;">
+				
+				<div class="cart-row" style="display:flex; align-items:flex-stretch; margin-bottom:10px; padding-bottom:20px ;border-bottom: 1px solid black ;" >
+					<div style="flex:2"><strong><h4>Products</h4></strong></div>
+					<div style="flex:1"><strong><h4>Price</h4></strong></div>
+
+					<div style="flex:1"><strong><h4>Remove</h4></strong></div>
+				</div>
+
+				{% for item in rendervfxpaidproducts %}   
+				<div class="cart-row" style="display:flex; align-items:flex-stretch; margin-bottom:10px; padding-bottom:20px ;border-bottom: 1px solid black ;" >
+					<div style="flex:2"><strong>{{ item.product}}</strong></div>
+					<div style="flex:1"><strong> ${{ item.product.get_final_total|floatformat:2}}</strong></div>
+					
+					<div style="flex:1"><span><button type="button" data-product="{{item.product}}"  data-poid="{{item.id}}" data-pubid="{{item.published_by}}"  data-action="rmvpdt" class="chg-quantity btn btn-sm btn-danger Vfx-cart">Remove</button></div>
+				</div>
+				{% endfor %}
+
+				{% for item in rendersfxpaidproducts %}   
+				<div class="cart-row" style="display:flex; align-items:flex-stretch; margin-bottom:10px; padding-bottom:20px ;border-bottom: 1px solid black ;" >
+					<div style="flex:2"><strong>{{ item.product}}</strong></div>
+					<div style="flex:1"><strong> ${{ item.product.get_final_total|floatformat:2}}</strong></div>
+					
+					<div style="flex:1"><span><button type="button" data-product="{{item.product}}"  data-poid="{{item.id}}" data-pubid="{{item.published_by}}"  data-action="rmvpdt" class="chg-quantity btn btn-sm btn-danger Sfx-cart">Remove</button></div>
+				</div>
+				{% endfor %}
+
+				{% for item in rendergraphicspaidproducts %}   
+				<div class="cart-row" style="display:flex; align-items:flex-stretch; margin-bottom:10px; padding-bottom:20px ;border-bottom: 1px solid black ;" >
+					<div style="flex:2"><strong>{{ item.product}}</strong></div>
+					<div style="flex:1"><strong> ${{ item.product.get_final_total|floatformat:2}}</strong></div>
+					
+					<div style="flex:1"><span><button type="button" data-product="{{item.product}}"  data-poid="{{item.id}}" data-pubid="{{item.published_by}}"  data-action="rmvpdt" class="chg-quantity btn btn-sm btn-danger Graphics-cart">Remove</button></div>
+				</div>
+				{% endfor %}
+
+				<br>
+				<br>
+				<br>
+
+				<br>
+				<br>
+			</div>
+
+			<br>
+			<br>
+			<br>
+			
+		</div>
+	</div>
+{% endblock body%}

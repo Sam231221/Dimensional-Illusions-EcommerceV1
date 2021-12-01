@@ -1,0 +1,92 @@
+{% extends "Blogs/blogbase.html" %} 
+{% load static %} {% block title %}DI | Blogs |Search {% endblock %}
+{% block content %}
+<style>
+    p2{
+        color: red;
+    }
+</style>
+<div class="album">
+    <div class="container blog-container">
+        <div class="row">
+            <div class="col-7 col-md-9">
+            <div class="row mt-5 mb-4">
+
+                    {%  if count == 0 %}
+                    <div class="containe text-center mt-5 mb-5">
+                        <br><br><br><br>
+                        <p2>No search results found.
+                          <br>
+                        Your search query : {{query}}
+                        <br>
+                        Sorry, Dear Customer. Your keyword did not match  with any Queries.
+                        <br><br>
+                        </p2>
+
+                        <h2>
+                          Why am I seeing this?:
+                        </h2>
+              
+                        <ul>
+                            <li>->Incorrect/Senseless Keywords.</li>
+                            <li>->No keywords.</li>
+                            <li> -> Very Few Keywords.</li>
+                            </li>
+                        </ul> 
+                        <br><br><br>
+                        <br>
+                      </div>
+
+
+                    {% endif %}
+
+                {% for post in queryset %}
+                <div class="col-lg-5 col-md-5 col-sm-12 m-2 pb-4">
+                    <div class="card shadow-sm">
+
+                        <img src="{{post.thumbnail.url}}" alt="thumbnail">
+                        <div class="card-body">
+                            <a href="{{post.get_absolute_url}}">
+                                <h4>{{post.title|truncatechars:30}}</h4>
+                            </a>
+                            <hr>
+                            <p class="card-text">{{post.content|truncatechars:100}}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{{post.get_absolute_url}}"><button type="button"
+                                            class="btn btn-sm btn-outline-secondary">Read more</button></a>
+                                </div>
+
+                                <small class="text-muted">about {{post.publish_date|timesince}} ago</small>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            </div>
+            <div class="col-5 col-md-3 ">
+
+                <div class="row mb-5 blog-search">
+                    <p1><strong>Searh the blog</strong></p1>
+                    <hr>
+                    <form action="{% url 'Eblog:searchview' %}" class="col-12 col-lg-auto mb-3 mt-1">
+                        <input type="search" name="query" class="form-control" placeholder="Search Blog..."
+                            aria-label="Search">
+                        <button class="button" type="submit"><i class="bi bi-search"></i></button>
+
+                    </form>
+                    <br>
+                </div>
+
+
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+{% endblock %}

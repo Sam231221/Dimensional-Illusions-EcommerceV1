@@ -1,0 +1,235 @@
+{% extends "Blogs/blogbase.html" %} 
+ {% load static %} 
+{% block title %} DI | Blog | BlogPost {% endblock %} 
+{% block content %}
+<style>
+  .children {
+    margin-left: 3rem !important;
+  }
+
+  @media screen and (min-width: 600px) {
+    .children form {
+      margin-left: -48px;
+      /* will touch very left side */
+    }
+
+    .children .children form {
+      margin-left: -96px;
+      /* will touch very left side */
+    }
+  }
+</style>
+<div class="album py-5 ">
+  <div class="container blog-container">
+
+    <div class="row ">
+      <h1 class="mb-3">Blogs</h1>
+      <hr class="m-0">
+      <br>
+
+      <div class="col-7 col-md-9">
+
+        <div class="row">
+
+          <img class="card-img-top" src="{{post.thumbnail.url}}" alt="thum'">
+          <br><br>
+          <h1 class="text  mt-4">{{post.title}}</h1>
+          <span class="text-muted">
+            By {{post.author}} | {{post.publish_date}}
+          </span>
+          <span class="text-muted">
+            Views {{post.totalviews}}
+        </span>
+          <div class="">
+            <p>{{post.content|safe}}</p>
+
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col">
+            <br><br><br>
+            <h2>Comment Section:</h2>
+            <br>
+            {% with allcomments.count as total_comments %}
+            <h2>
+              {{ total_comments }} comment{{ total_comments|pluralize }}
+            </h2>
+            {% endwith %}
+
+
+       <!--COMMENTS-->
+
+            {% load mptt_tags %}
+            <div>
+              {% recursetree comments %}
+
+              <div id="{{ node.id }}" class="my-2 p-2" style="border: 1px solid grey">
+                <div class="d-flex justify-content-between">-By {{ node.user }}<div></div>{{ node.publish }}</div>
+                <div>{{ node.content }}</div>
+
+                <hr />
+
+                {% if node.level < 4 %}
+
+                  {% if request.user.username %}
+                  <button type="button" onclick="myFunction({{ node.id }})" class="btn btn-primary">
+                    Reply
+                  </button>
+
+                  {% else %}
+                  <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                    data-bs-placement="bottom" data-bs-content="login to comment">
+                    Reply
+                  </button>
+                  {% endif %}
+
+                  {% endif %}
+              </div>
+
+              {% if not node.is_leaf_node %}
+
+              <div class="children">
+                {{ children }}
+              </div>
+              {% endif %}
+
+              {% endrecursetree %}
+            </div>
+
+            <!--Pagination-->
+            <div class="py-4">
+              <nav aria-label="Page navigation example">
+                {% if comments.has_other_pages %}
+                <!--check multiple pages-->
+                <ul class="pagination">
+                  {% if comments.has_previous %}
+                  <li class="page-item"><a class="page-link"
+                      href="?page={{ comments.previous_page_number }}">Previous</a>
+                  </li>
+                  {% else %}
+
+                  <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                  {% endif %}
+
+                  {% for num in comments.paginator.page_range %}
+                  {% if comments.number == l %}
+                  <li class="page-item active"><span class="page-link">{{ num }} <span
+                        class="sr-only">(current)</span></span>
+                  </li>
+                  {% else %}
+                  <li><a class="page-link" href="?page={{ num }}">{{ num }}</a></li>
+                  {% endif %}
+                  {% endfor %}
+                  {% if comments.has_next %}
+                  <li class="page-item"><a class="page-link" href="?page={{ comments.next_page_number }}">Next</a></li>
+                  {% else %}
+                  <li class="page-item disabled"><a class="page-link" href="#">Next</a></li>
+                  {% endif %}
+                </ul>
+                {% endif %}
+              </nav>
+            </div>
+
+            {% if request.user.username %}
+            <div id="myDIV" style="display:block;">
+              <form id="myForm" method="post">
+                <h2>Create new comment</h2>
+                {{ comment_form.as_p }}
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary btn-lg btn-block value="Submit">
+              </form>
+            </div>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-5 col-md-3 ">
+
+        <div class="row mb-5 blog-search">
+          <p1><strong>Searh the blog</strong></p1>
+          <hr>
+          <form action="{% url 'Eblog:searchview' %}" class="col-12 col-lg-auto mb-3 mt-1">
+            <input type="search" name="query" class="form-control" placeholder="Search..." aria-label="Search">
+            <button type="submit"><i class="bi bi-search"></i></button>
+
+          </form>
+          <br>
+        </div>
+
+        <div class="row marginator">
+
+          <div class="col ">
+
+            <div class="list-group recent-posts">
+              <h4 class="text-center">Recent Posts</h4>
+              {% for post in recent_posts %}
+
+              <img src="{{post.thumbnail.url}}" alt="thumbnail">
+              <a href="#" class=" text-center">{{post.title}}</a>
+              <small class="text-end text-muted p-2">about {{post.publish_date|timesince}} ago</small>
+              <br>
+              <br> {% endfor %}
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="row ">
+          <div class="col">
+
+              <div class="list-group category-container">
+                  <h4 class="text-center">Category</h4>
+                  {% for item in category %}
+                  <a href="#" class="list-group-item list-group-item-action">{{item.name}}
+                  {% endfor %}
+                  </a>
+              </div>
+
+          </div>
+      </div>
+
+
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
+<script>
+  function formExit() {
+    document.getElementById("newForm").remove();
+  }
+
+  function myFunction(id) {
+    //this if statement is used to control multiple form open when reply button is pressed.When a new reply button is pressed add form for new one but remove
+    //for old one
+    if (document.contains(document.getElementById("newForm"))) {
+      document.getElementById("newForm").remove();
+    }
+
+    //we are using insertAdjacentHTML to display out form every time reply button is pressed
+    var d1 = document.getElementById(id);
+    d1.insertAdjacentHTML('afterend',
+      '<form id="newForm" class="form-insert py-2" method="post"> \
+                <div class="d-flex justify-content-between"><h2>Reply:</h2><div><button type="button" class="btn btn-outline-secondary" onclick="formExit()"">Close</button></div></div> \
+                <select name="parent" class="d-none" id="id_parentt"> \
+                <option value="' + id + '" selected="' + id + '"></option> \
+                </select> \
+                <label for="id_content">Content:</label> \
+                <textarea name="content" cols="40" rows="5" class="form-control" required id="id_content"></textarea> \
+                {% csrf_token %} \
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button> \
+              </form>');
+
+    //document.querySelector('#id_parentt [value="' + id + '"]').selected = true;
+  }
+
+  $('#myForm').trigger("reset");
+</script>
+
+{% endblock %}

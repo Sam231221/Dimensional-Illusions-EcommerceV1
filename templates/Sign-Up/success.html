@@ -1,0 +1,29 @@
+{% extends "Sign-Up/base.html"%}
+{% block title %}
+<title>DI | EA Verification | Sucess</title>
+{% endblock %}
+{% block style %}
+<style>
+i{
+    color: greenyellow;
+}
+</style>
+{% endblock %}
+{% block body %}
+
+<div class="global-container">
+    <div class="card login-form">
+        <div class="card-body">
+            <h3 class="card-title text-center mt-4">Congratulations, Your account is verified. <i class="bi bi-check-circle"></i></h3>
+            <div class="card-text text-center">
+                Now,You can log in .
+            </div>
+            <div class="text-center mt-3">
+                <a class="btn btn-primary" href="{% url 'login' %}">Login</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,120 @@
+{% extends "Blogs/blogbase.html" %} 
+{% load static %} 
+{% block title %}DI | Blogs | Category {% endblock %} 
+{% block content %}
+<div class="album py-5 ">
+    <div class="container blog-container">
+
+        <div class="row ">
+            <h1 class="mb-3">Blogs</h1>
+            <hr class="m-0">
+            <br>
+
+            <div class="col-7 col-md-9">
+
+                <div class="row">
+                    <h2 style="color: white;">{{post_count}} Total Results :</h2>
+                    <br><br>
+                    {% for post in cat_post %}
+                    <div class="col-lg-5 col-md-5 col-sm-12 m-2 pb-4">
+                        <div class="card shadow-sm">
+
+                            <img src="{{post.thumbnail.url}}" alt="thumbnail">
+                            <div class="card-body">
+                                <a href="{{post.get_absolute_url}}">
+                                    <h4>{{post.title|truncatechars:50}}</h4>
+                                </a>
+                                <hr>
+                                <p class="card-text">{{post.content|truncatechars:100}}</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="btn-group">
+                                        <a href="{{post.get_absolute_url}}"><button type="button"
+                                                class="btn btn-sm btn-outline-secondary">Read more</button></a>
+                                    </div>
+
+                                    <small class="text-muted">about {{post.publish_date|timesince}} ago</small>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+            <div class="col-5 col-md-3 ">
+
+                <div class="row mb-5 blog-search">
+                    <p1><strong>Searh the blog</strong></p1>
+                    <hr>
+                    <form action="{% url 'EBlog:searchview' %}" class="col-12 col-lg-auto mb-3 mt-1">
+                        <input type="search" name="query" class="form-control" placeholder="Search..."
+                            aria-label="Search">
+                        <button class="button" type="submit"><i class="bi bi-search"></i></button>
+
+                    </form>
+                    <br>
+                </div>
+
+                <div class="row marginator">
+
+                    <div class="col ">
+
+                        <div class="list-group recent-posts">
+                            <h4 class="text-center">Recent Posts</h4>
+                            {% for post in recent_posts %}
+
+                            <img src="{{post.thumbnail.url}}" alt="thumbnail">
+                            <a href="#" class=" text-center">{{post.title}}</a>
+                            <small class="text-end text-muted p-2">about {{post.publish_date|timesince}} ago</small>
+                            <br>
+                            <br> {% endfor %}
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="row ">
+                    <div class="col">
+
+                        <div class="list-group category-container">
+                            <h4 class="text-center">Category</h4>
+                            {% for item in category %}
+                            <a href="{% url 'EBlog:category' item.id %}" class="list-group-item list-group-item-action">{{item.name}}
+                            {% endfor %}
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
+            <nav>
+                <ul class="pagination">
+                    {% if queryset.has_previous %}
+                    <li class="page-item ">
+                        <a class="page-link" href="?{{ page_var }}={{ queryset.previous_page_number }}" tabindex="-1"
+                            aria-disabled="true">Previous</a>
+                    </li>
+                    {% endif %}
+
+
+                    <li class="page-item"><a class="page-link" href="?{{ page_var }}={{ queryset.number }}">{{queryset.number }}</a></li>
+
+                    {% if queryset.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{{ page_var }}={{ queryset.next_page_number }}">Next</a>
+                    </li>
+                    {% endif %}
+
+                </ul>
+            </nav>
+
+        </div>
+    </div>
+</div>
+{% endblock %}

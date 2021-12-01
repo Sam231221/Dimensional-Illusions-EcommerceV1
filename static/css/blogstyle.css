@@ -1,0 +1,211 @@
+.blog-container {
+    background-color: black;
+    color: white;
+}
+.album{
+    background-color: black!important;
+}
+
+.blog-container img {
+    width: 100%;
+    object-fit: cover;
+    height: 14rem;
+}
+
+.blog-container .card-body a {
+    text-decoration: none;
+    color: white;
+}
+.mb-5{
+    margin-bottom: 5rem!important;
+}
+.pb-4{
+    padding-bottom: 5rem!important;
+}
+
+.blog-container .card-body a:hover {
+    color: rgb(39, 172, 255);
+}
+
+hr {
+    margin-top: 0;
+    margin-bottom: .3rem;
+}
+
+.blog-container .card {
+    background-color: rgb(51, 51, 51);
+    color: white;
+}
+
+.blog-container .card-text {
+    color: rgb(216, 216, 216)!important;
+}
+
+.blog-container .card-body h4 {
+    font-size: 1.3rem;
+    color: rgb(216, 216, 216)!important;
+}
+
+.blog-container .card-body p {
+    font-size: .9rem;
+    color: rgb(216, 216, 216)!important;
+}
+
+.blog-container .text-muted {
+    font-size: .7rem;
+    color: rgb(150, 150, 150)!important;
+}
+
+.blog-container button {
+    font-size: .7rem;
+}
+
+
+/*Side Bar Style*/
+
+.blog-search {
+    color: white;
+}
+.blog-search i{
+    font-size: 1.1rem;
+}
+.blog-search .button{
+    background-color: #525252; 
+    border: none!important;
+    border-radius:3rem;
+    color: white;
+
+}
+
+.blog-search i:hover {
+    cursor: pointer;
+    color: rgb(20, 115, 230);
+    transition: .5 ease;
+}
+
+.blog-search input {
+    width: 80%;
+    height: 1.7rem;
+    font: .7rem;
+    display: inline;
+}
+
+.blog-search form {
+    display: inline;
+}
+/*Recent posts*/
+.recent-posts,
+a {
+    color: white;
+    text-decoration: none;
+    font-size: .9rem;
+}
+
+.recent-posts a,
+small {
+    background-color: #333333!important;
+}
+
+.recent-posts img {
+    width: 100%;
+    object-fit: cover;
+    height: 7rem;
+}
+
+.recent-posts a:hover {
+    color: rgb(33, 196, 255)!important;
+    transition: all .5s ease;
+}
+
+.category-container {
+    border-radius: 1rem;
+}
+
+.category-container h4 {
+    font-size: 1.1rem;
+    padding: .4rem;
+    margin: 0;
+    background-color: #333333;
+}
+
+.category-container a {
+    font-size: .9rem;
+    padding: .4rem;
+    margin: 0;
+    color: white;
+    background-color: #484848!important;
+}
+
+.category-container a:hover {
+    margin: 0;
+    color: rgb(33, 196, 255)!important;
+    background-color: rgba(162, 162, 162, 0.5)!important;
+    transition: all .5s ease;
+}
+
+.marginator {
+    margin-bottom: 15rem;
+}
+
+.bg-black {
+    background-color: black;
+    color: white;
+}
+
+@media only screen and (max-width:551px) {
+    .blog-container img {
+        height: 7rem;
+    }
+    .blog-container button {
+        font-size: .5rem;
+    }
+    .category-container h4 {
+        font-size: .9rem;
+    }
+    .category-container a {
+        font-size: .5rem;
+    }
+    .blog-container .card-body h4 {
+        font-size: .9rem;
+    }
+    .blog-container .card-body p {
+        font-size: .5rem;
+    }
+    .blog-container .text-muted {
+        font-size: .4rem;
+    }
+}
+
+@media only screen and (max-width:361px) {
+
+    .blog-search i{
+        font-size: .9rem;
+    }
+    .blog-search input {
+        width: 75%;
+        height: 1.5rem;
+    }
+    .blog-container .card-body h4 {
+        font-size: .7rem;
+    }
+    .recent-posts,
+h4 {
+    font-size: .9rem;
+}
+.recent-posts,
+a {
+    font-size: .7rem;
+}
+.recent-posts img {
+    width: 100%;
+    object-fit: cover;
+    height: 5rem;
+}
+
+    .category-container h4 {
+        font-size: .7rem;
+    }
+    .category-container a {
+        font-size: .4rem;
+    }
+}

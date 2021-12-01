@@ -1,0 +1,80 @@
+{% extends 'frontend_base.html' %}
+{% block title %}
+<title>DI | GraphicsElements | Characters</title>
+{% endblock %}
+{% load static %}
+{% block ActivateGraphics %}active{% endblock %}
+{% block body %}
+
+<div class="jumbotron" style="background-color: black; margin: 0px;"> 
+    
+<h1 class="pt-2">Characters</h1>
+<div class="line-controller">
+    <hr class="my-4" style="background-color: white;">
+    </div>
+    <div class="album py-5 font-control">
+      <div class="container">     
+        <div class="row" style="background-color: black;">
+
+          {% for i in getpaidcharacters %} 
+          
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+
+            <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+              <img src="{{i.paidproduct.url}}" alt="" srcset="" width="100%" height="150">
+
+                <div class="card-body">
+                  <p class="card-text  text-center" ><strong>{{i.name}}</strong></p>
+  
+                  <div class="row">
+                    <div class="col-6 ">
+                      {% if  request.user.is_authenticated %}
+                        <button class="btn btn-primary btn-sm Character-cart" data-product="{{i.name}}" data-pubid="{{i.publisher}}" data-action="add" >AddtoCart</button>
+                      {% else %}
+                      <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover" data-placement="bottom" data-content="You need to login">
+                        AddtoCart
+                    </button>
+                    {% endif %}
+                      </div>
+                    <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                        <small style="color: white;" class="mr-3">Price : </small>
+                        <small style="color: white;" class="text "  >${{i.price}}</small>        
+                    </div>
+                  </div>
+  
+                </div>
+            </div>
+          </div>
+
+          {% endfor %}
+
+          {% for i in getfreecharacters %} 
+          <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+
+            <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+                <img src="{{i.freeproduct.url}}" alt="" srcset="" width="100%" height="150">
+
+                <div class="card-body">
+  
+                  <div class="card-body">
+                    <p class="card-text text-center"><strong>{{i.name}}</strong></p>
+                    <div class=" text-center align-items-center">
+                      <div class="btn-group ">
+                        <a href="{{i.freeproduct.url}}" download="">
+                         <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                        </a>
+                     </div>
+                    </div>
+                  </div>
+  
+                </div>
+            </div>
+            </div>
+          {% endfor %}
+
+        </div>
+      </div>  
+    </div>
+  </div>
+
+{% endblock %}

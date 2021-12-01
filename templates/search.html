@@ -1,0 +1,1478 @@
+{% extends 'frontend_base.html' %}
+{% load static %}
+
+{% block title %}
+<title>DI | SearchProducts </title>
+{% endblock %}
+
+{% block body %}
+<style>
+  .contad {
+    background-color: #111111;
+  }
+
+  small,
+  strong {
+    color: white;
+  }
+
+  p2 {
+    color: rgb(249, 63, 63);
+  }
+
+  .player {
+    background-color: rgb(10, 10, 10);
+    border: 16px solid black;
+  }
+
+  ul {
+    color: white;
+  }
+</style>
+
+<!--Search Contents-->
+<div class="jumbotron" style="background-color: black; margin: 0px;">
+
+  <div class="album py-1">
+    <div class="container ">
+      <h2 class="">Search results : </h2><br></br>
+      <div class="text-center" style="background-color: black;">
+        <br>
+
+
+        {% if TotalCount == 0 %}
+        <div class="mt-5 mb-5">
+          <br><br>
+          <p2>No search results found.
+            <br>
+          Your search query : {{query}}
+          <br>
+          Sorry, Dear Customer. Your keyword did not match  with any Queries.
+          <br><br>
+          </p2>
+          <h2>
+            Why am I seeing this?:
+          </h2>
+
+          <ul>
+              <li>->Incorrect/Senseless Keywords.</li>
+              <li>->No keywords.</li>
+              <li> -> Very Few Keywords.</li>
+              </li>
+          </ul>
+          <br><br> 
+        </div>
+        {% endif %}
+
+
+      </div>
+
+      <div class="row" style="background-color: black;">
+
+        {% for i in getpaidlandscapes %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+
+          <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+            <img src="{{i.paidproduct.url}}" alt="" srcset="" width="100%" height="150">
+
+              <div class="card-body">
+                <p class="card-text  text-center" ><strong>{{i.name}}</strong></p>
+
+                <div class="row">
+                  <div class="col-6 ">
+                    {% if  request.user.is_authenticated %}
+                      <button class="btn btn-primary btn-sm Landscape-cart" data-product="{{i.name}}" data-pubid="{{i.publisher_Id}}" data-action="add" >AddtoCart</button>
+                    {% else %}
+                    <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover" data-placement="bottom" data-content="You need to login">
+                      AddtoCart
+                  </button>
+                  {% endif %}
+                    </div>
+                  <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                      <small style="color: white;" class="mr-3">Price : </small>
+                      <small style="color: white;" class="text "  >${{i.price}}</small>        
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreelandscapes %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+
+          <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+              <img src="{{i.freeproduct.url}}" alt="" srcset="" width="100%" height="150">
+
+              <div class="card-body">
+
+                <div class="card-body">
+                  <p class="card-text text-center"><strong>{{i.name}}</strong></p>
+                  <div class=" text-center align-items-center">
+                    <div class="btn-group ">
+                      <a href="{{i.freeproduct.url}}" download="">
+                       <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                      </a>
+                   </div>
+                  </div>
+                </div>
+
+              </div>
+          </div>
+          </div>
+        {% endfor %}
+
+
+        {% for i in getpaidcharacters %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+
+          <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+            <img src="{{i.paidproduct.url}}" alt="" srcset="" width="100%" height="150">
+
+              <div class="card-body">
+                <p class="card-text  text-center" ><strong>{{i.name}}</strong></p>
+
+                <div class="row">
+                  <div class="col-6 ">
+                    {% if  request.user.is_authenticated %}
+                      <button class="btn btn-primary btn-sm Character-cart" data-product="{{i.name}}" data-pubid="{{i.publisher_Id}}" data-action="add" >AddtoCart</button>
+                    {% else %}
+                    <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover" data-placement="bottom" data-content="You need to login">
+                      AddtoCart
+                  </button>
+                  {% endif %}
+                    </div>
+                  <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                      <small style="color: white;" class="mr-3">Price : </small>
+                      <small style="color: white;" class="text "  >${{i.price}}</small>        
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreecharacters %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+
+          <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+              <img src="{{i.freeproduct.url}}" alt="" srcset="" width="100%" height="150">
+
+              <div class="card-body">
+
+                <div class="card-body">
+                  <p class="card-text text-center"><strong>{{i.name}}</strong></p>
+                  <div class=" text-center align-items-center">
+                    <div class="btn-group ">
+                      <a href="{{i.freeproduct.url}}" download="">
+                       <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                      </a>
+                   </div>
+                  </div>
+                </div>
+
+              </div>
+          </div>
+          </div>
+        {% endfor %}
+
+        {% for i in getfreeopticallens %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+
+            <video loop width="100%" height="150">
+              <source src="{{i.video.url}}">
+            </video>
+
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{{i.file.url}}" download="">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getpaidopticallens %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+
+            <video loop width="100%" height="150">
+              <source src="{{i.video.url}}">
+            </video>
+
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+
+              <div class="row">
+                <div class="col-6">
+                  {% if request.user.is_authenticated %}
+                  <button class="btn btn-primary btn-sm Opticallens-cart" data-product="{{i.name}}"
+                    data-action="add">AddtoCart</button>
+                  {% else %}
+                  <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                    data-placement="bottom" data-content="You need to login">
+                    AddtoCart
+                  </button>
+                  {% endif %}
+                </div>
+                <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                  <small style="color: white;" class="mr-3">Price : </small>
+                  <small style="color: white;" class="text ">${{i.price}}</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+
+
+      <div class="row" style="background-color: black;">
+
+
+        {% for i in getfreeaudiospectrums %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+
+            <video loop width="100%" height="150">
+              <source src="{{i.video.url}}">
+            </video>
+
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{{i.file.url}}" download="">
+                   <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                  </a>
+               </div>
+              </div>
+            </div>
+            
+          </div>
+        </div>
+        {% endfor %}
+
+
+        {% for i in getpaidaudiospectrums %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+
+              <video loop width="100%" height="150">
+                  <source src="{{i.video.url}}">
+              </video>
+
+              <div class="card-body">
+                <p class="card-text"><strong>{{i.name}}</strong></p>
+
+                <div class="row">
+                  <div class="col-6">
+                    {% if  request.user.is_authenticated %}
+                    <button class="btn btn-primary btn-sm spectrum-cart" data-product="{{i.name}}" data-pubid="{{i.publisher_Id}}" data-action="add" >AddtoCart</button>
+                    {% else %}
+                    <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover" data-placement="bottom" data-content="You need to login">
+                      AddtoCart
+                  </button>
+                  {% endif %}
+                  </div>
+                  <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                      <small style="color: white;" class="mr-3">Price : </small>
+                      <small style="color: white;" class="text "  >${{i.price}}</small>        
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </div>
+        {% endfor %}           
+
+        {% for i in getfreelyricstemplate %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+
+            <video loop width="100%" height="150">
+              <source src="{{i.video.url}}">
+            </video>
+
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{{i.file.url}}" download="">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getpaidlyricstemplate %} 
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+
+              <video loop width="100%" height="150">
+                  <source src="{{i.video.url}}">
+              </video>
+
+              <div class="card-body">
+                <p class="card-text"><strong>{{i.name}}</strong></p>
+
+                <div class="row">
+                  <div class="col-6">
+                    {% if  request.user.is_authenticated %}
+                    <button class="btn btn-primary btn-sm lyricstemplate-cart" data-product="{{i.name}}" data-pubid="{{i.publisher_Id}}" data-action="add" >AddtoCart</button>
+                    {% else %}
+                    <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover" data-placement="bottom" data-content="You need to login">
+                      AddtoCart
+                  </button>
+                  {% endif %}
+                  </div>
+                  <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                      <small style="color: white;" class="mr-3">Price : </small>
+                      <small style="color: white;" class="text "  >${{i.price}}</small>        
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </div>
+        {% endfor %}           
+
+      </div>
+
+      <div class="row" style="background-color: black;">
+
+
+        {% for i in getpaidsoundpacks %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+
+            <video loop width="100%" height="150">
+              <source src="{{i.video.url}}">
+            </video>
+
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+
+              <div class="row">
+                <div class="col-6">
+                  {% if request.user.is_authenticated %}
+                  <button class="btn btn-primary btn-sm spectrum-cart" data-product="{{i.name}}"
+                    data-action="add">AddtoCart</button>
+                  {% else %}
+                  <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                    data-placement="bottom" data-content="You need to login">
+                    AddtoCart
+                  </button>
+                  {% endif %}
+                </div>
+                <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                  <small style="color: white;" class="mr-3">Price : </small>
+                  <small style="color: white;" class="text ">${{i.price}}</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreesoundpacks %} 
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+              <video loop width="100%" height="150">
+                  <source src="{{i.video.url}}">
+              </video>
+
+              <div class="card-body">
+                <p class="card-text"><strong>{{i.name}}</strong></p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="{{i.product.file.url}}" download="">
+                       <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                      </a>
+                   </div>
+                  </div>
+                </div>
+
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getpaidvfxpacks %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+
+            <video loop width="100%" height="150">
+              <source src="{{i.video.url}}">
+            </video>
+
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+
+              <div class="row">
+                <div class="col-6">
+                  {% if request.user.is_authenticated %}
+                  <button class="btn btn-primary btn-sm spectrum-cart" data-product="{{i.name}}"
+                    data-action="add">AddtoCart</button>
+                  {% else %}
+                  <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                    data-placement="bottom" data-content="You need to login">
+                    AddtoCart
+                  </button>
+                  {% endif %}
+                </div>
+                <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                  <small style="color: white;" class="mr-3">Price : </small>
+                  <small style="color: white;" class="text ">${{i.price}}</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreevfxpacks %} 
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+              <video loop width="100%" height="150">
+                  <source src="{{i.video.url}}">
+              </video>
+
+              <div class="card-body">
+                <p class="card-text"><strong>{{i.name}}</strong></p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="{{i.product.file.url}}" download="">
+                       <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                      </a>
+                   </div>
+                  </div>
+                </div>
+
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getpaidflimtransitionpacks %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+
+            <video loop width="100%" height="150">
+              <source src="{{i.video.url}}">
+            </video>
+
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+
+              <div class="row">
+                <div class="col-6">
+                  {% if request.user.is_authenticated %}
+                  <button class="btn btn-primary btn-sm spectrum-cart" data-product="{{i.name}}"
+                    data-action="add">AddtoCart</button>
+                  {% else %}
+                  <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                    data-placement="bottom" data-content="You need to login">
+                    AddtoCart
+                  </button>
+                  {% endif %}
+                </div>
+                <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                  <small style="color: white;" class="mr-3">Price : </small>
+                  <small style="color: white;" class="text ">${{i.price}}</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreeflimtransitionpacks  %} 
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+              <video loop width="100%" height="150">
+                  <source src="{{i.video.url}}">
+              </video>
+
+              <div class="card-body">
+                <p class="card-text"><strong>{{i.name}}</strong></p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="{{i.product.file.url}}" download="">
+                       <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                      </a>
+                   </div>
+                  </div>
+                </div>
+
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getpaidmotiongraphicspacks %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+
+            <video loop width="100%" height="150">
+              <source src="{{i.video.url}}">
+            </video>
+
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+
+              <div class="row">
+                <div class="col-6">
+                  {% if request.user.is_authenticated %}
+                  <button class="btn btn-primary btn-sm spectrum-cart" data-product="{{i.name}}"
+                    data-action="add">AddtoCart</button>
+                  {% else %}
+                  <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                    data-placement="bottom" data-content="You need to login">
+                    AddtoCart
+                  </button>
+                  {% endif %}
+                </div>
+                <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                  <small style="color: white;" class="mr-3">Price : </small>
+                  <small style="color: white;" class="text ">${{i.price}}</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreemotiongraphicspacks  %} 
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+              <video loop width="100%" height="150">
+                  <source src="{{i.video.url}}">
+              </video>
+
+              <div class="card-body">
+                <p class="card-text"><strong>{{i.name}}</strong></p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a href="{{i.product.file.url}}" download="">
+                       <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                      </a>
+                   </div>
+                  </div>
+                </div>
+
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+
+      <div class="row" style="background-color: black;">
+
+
+        {% for i in getfreelightiningsfx %}
+        <div class="col-md-4 col-sm-10">
+          <div class="player p-4">
+            <div class="wrapper">
+              <div class="col alignment">
+                <strong class="ml-1 mb-0">{{i.name}}</strong>
+              </div>
+
+              <audio style="height: 1.4rem;" controls>
+                <source src="{{i.freeproduct.url}}">
+              </audio>
+
+              <div class="row gx-0">
+                <div class="col buttn">
+                  <a href="{{i.freeproduct.url}}" download="">
+                    <button class="btn btn-secondary btn-sm">Download</button>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <br>
+        {% endfor %}
+
+        {% for i in getpaidlightiningsfx %}
+        <div class="col-md-4 col-sm-10">
+
+          <div class="player p-4">
+            <div class="wrapper">
+              <di class="col alignment">
+                <strong class="ml-1 mb-0">{{i.name}}</strong>
+              </di>
+
+            </div>
+            <audio style="height: 1.4rem;" controls>
+              <source src="{{i.paidproduct.url}}">
+            </audio>
+
+            <div class="row gx-0">
+              <div class="col text-center">
+                <small>Price: </small>
+                <small>${{i.price}}</small>
+              </div>
+
+              {% if request.user.is_authenticated %}
+              <div class="col buttn">
+                <button data-product="{{i.name}}" data-action="add"
+                  class="btn btn-primary  electricitysfx-cart btn-sm">AddtoCart</button>
+              </div>
+              {% else %}
+              <div class="col buttn">
+                <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                  data-placement="bottom" data-content="You need to login">
+                  AddtoCart
+                </button>
+              </div>
+              {% endif %}
+
+            </div>
+
+
+
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreeEnergysfx %}
+        <div class="col-md-4 col-sm-10">
+          <div class="player p-4">
+            <div class="wrapper">
+              <div class="col alignment">
+                <strong class="ml-1 mb-0">{{i.name}}</strong>
+              </div>
+
+              <audio style="height: 1.4rem;" controls>
+                <source src="{{i.freeproduct.url}}">
+              </audio>
+
+              <div class="row gx-0">
+                <div class="col buttn">
+                  <a href="{{i.freeproduct.url}}" download="">
+                    <button class="btn btn-secondary btn-sm">Download</button>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <br>
+        {% endfor %}
+
+        {% for i in getpaidEnergysfx %}
+        <div class="col-md-4 col-sm-10">
+
+          <div class="player p-4">
+            <div class="wrapper">
+              <di class="col alignment">
+                <strong class="ml-1 mb-0">{{i.name}}</strong>
+              </di>
+
+            </div>
+            <audio style="height: 1.4rem;" controls>
+              <source src="{{i.paidproduct.url}}">
+            </audio>
+
+            <div class="row gx-0">
+              <div class="col text-center">
+                <small>Price: </small>
+                <small>${{i.price}}</small>
+              </div>
+
+              {% if request.user.is_authenticated %}
+              <div class="col buttn">
+                <button data-product="{{i.name}}" data-action="add"
+                  class="btn btn-primary  electricitysfx-cart btn-sm">AddtoCart</button>
+              </div>
+              {% else %}
+              <div class="col buttn">
+                <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                  data-placement="bottom" data-content="You need to login">
+                  AddtoCart
+                </button>
+              </div>
+              {% endif %}
+
+            </div>
+
+          </div>
+        </div>
+
+        {% endfor %}
+
+        {% for i in getfreeMachinerysfx %}
+        <div class="col-md-4 col-sm-10">
+          <div class="player p-4">
+            <div class="wrapper">
+              <div class="col alignment">
+                <strong class="ml-1 mb-0">{{i.name}}</strong>
+              </div>
+
+              <audio style="height: 1.4rem;" controls>
+                <source src="{{i.freeproduct.url}}">
+              </audio>
+
+              <div class="row gx-0">
+                <div class="col buttn">
+                  <a href="{{i.freeproduct.url}}" download="">
+                    <button class="btn btn-secondary btn-sm">Download</button>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <br>
+        {% endfor %}
+
+        {% for i in getpaidMachinerysfx %}
+        <div class="col-md-4 col-sm-10">
+
+          <div class="player p-4">
+            <div class="wrapper">
+              <di class="col alignment">
+                <strong class="ml-1 mb-0">{{i.name}}</strong>
+              </di>
+
+            </div>
+            <audio style="height: 1.4rem;" controls>
+              <source src="{{i.paidproduct.url}}">
+            </audio>
+
+            <div class="row gx-0">
+              <div class="col text-center">
+                <small>Price: </small>
+                <small>${{i.price}}</small>
+              </div>
+
+              {% if request.user.is_authenticated %}
+              <div class="col buttn">
+                <button data-product="{{i.name}}" data-action="add"
+                  class="btn btn-primary  electricitysfx-cart btn-sm">AddtoCart</button>
+              </div>
+              {% else %}
+              <div class="col buttn">
+                <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                  data-placement="bottom" data-content="You need to login">
+                  AddtoCart
+                </button>
+              </div>
+              {% endif %}
+
+            </div>
+
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreeEnvironmentalsfx %}
+        <div class="col-md-4 col-sm-10">
+          <div class="player p-4">
+            <div class="wrapper">
+              <div class="col alignment">
+                <strong class="ml-1 mb-0">{{i.name}}</strong>
+              </div>
+
+              <audio style="height: 1.4rem;" controls>
+                <source src="{{i.freeproduct.url}}">
+              </audio>
+
+              <div class="row gx-0">
+                <div class="col buttn">
+                  <a href="{{i.freeproduct.url}}" download="">
+                    <button class="btn btn-secondary btn-sm">Download</button>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <br>
+        {% endfor %}
+
+        {% for i in getpaidEnvironmentalsfx %}
+        <div class="col-md-4 col-sm-10">
+          <div class="player p-4">
+            <div class="wrapper">
+              <di class="col alignment">
+                <strong class="ml-1 mb-0">{{i.name}}</strong>
+              </di>
+
+            </div>
+            <audio style="height: 1.4rem;" controls>
+              <source src="{{i.paidproduct.url}}">
+            </audio>
+
+            <div class="row gx-0">
+              <div class="col text-center">
+                <small>Price: </small>
+                <small>${{i.price}}</small>
+              </div>
+
+              {% if request.user.is_authenticated %}
+              <div class="col buttn">
+                <button data-product="{{i.name}}" data-action="add"
+                  class="btn btn-primary  electricitysfx-cart btn-sm">AddtoCart</button>
+              </div>
+              {% else %}
+              <div class="col buttn">
+                <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                  data-placement="bottom" data-content="You need to login">
+                  AddtoCart
+                </button>
+              </div>
+              {% endif %}
+
+            </div>
+
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreeFiresfx %}
+        <div class="col-md-4 col-sm-10">
+          <div class="player p-4">
+            <div class="wrapper">
+              <div class="col alignment">
+                <strong class="ml-1 mb-0">{{i.name}}</strong>
+              </div>
+
+              <audio style="height: 1.4rem;" controls>
+                <source src="{{i.freeproduct.url}}">
+              </audio>
+
+              <div class="row gx-0">
+                <div class="col buttn">
+                  <a href="{{i.freeproduct.url}}" download="">
+                    <button class="btn btn-secondary btn-sm">Download</button>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <br>
+        {% endfor %}
+
+        {% for i in getpaidFiresfx %}
+        <div class="col-md-4 col-sm-10">
+
+          <div class="player p-4">
+            <div class="wrapper">
+              <di class="col alignment">
+                <strong class="ml-1 mb-0">{{i.name}}</strong>
+              </di>
+
+            </div>
+            <audio style="height: 1.4rem;" controls>
+              <source src="{{i.paidproduct.url}}">
+            </audio>
+
+            <div class="row gx-0">
+              <div class="col text-center">
+                <small>Price: </small>
+                <small>${{i.price}}</small>
+              </div>
+
+              {% if request.user.is_authenticated %}
+              <div class="col buttn">
+                <button data-product="{{i.name}}" data-action="add"
+                  class="btn btn-primary  electricitysfx-cart btn-sm">AddtoCart</button>
+              </div>
+              {% else %}
+              <div class="col buttn">
+                <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                  data-placement="bottom" data-content="You need to login">
+                  AddtoCart
+                </button>
+              </div>
+              {% endif %}
+
+            </div>
+
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreeWeaponsfx %}
+        <div class="col-md-4 col-sm-10">
+          <div class="player p-4">
+            <div class="wrapper">
+              <div class="col alignment">
+                <strong class="ml-1 mb-0">{{i.name}}</strong>
+              </div>
+
+              <audio style="height: 1.4rem;" controls>
+                <source src="{{i.freeproduct.url}}">
+              </audio>
+
+              <div class="row gx-0">
+                <div class="col buttn">
+                  <a href="{{i.freeproduct.url}}" download="">
+                    <button class="btn btn-secondary btn-sm">Download</button>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <br>
+        {% endfor %}
+
+        {% for i in getpaidWeaponsfx %}
+        <div class="col-md-4 col-sm-10">
+
+          <div class="player p-4">
+            <div class="wrapper">
+              <di class="col alignment">
+                <strong class="ml-1 mb-0">{{i.name}}</strong>
+              </di>
+
+            </div>
+            <audio style="height: 1.4rem;" controls>
+              <source src="{{i.paidproduct.url}}">
+            </audio>
+
+            <div class="row gx-0">
+              <div class="col text-center">
+                <small>Price: </small>
+                <small>${{i.price}}</small>
+              </div>
+
+              {% if request.user.is_authenticated %}
+              <div class="col buttn">
+                <button data-product="{{i.name}}" data-action="add"
+                  class="btn btn-primary  electricitysfx-cart btn-sm">AddtoCart</button>
+              </div>
+              {% else %}
+              <div class="col buttn">
+                <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                  data-placement="bottom" data-content="You need to login">
+                  AddtoCart
+                </button>
+              </div>
+              {% endif %}
+
+            </div>
+
+          </div>
+        </div>
+        {% endfor %}
+
+
+        {% for i in getfreeFightiningsfx %}
+        <div class="col-md-4 col-sm-10">
+          <div class="player p-4">
+            <div class="wrapper">
+              <div class="col alignment">
+                <strong class="ml-1 mb-0">{{i.name}}</strong>
+              </div>
+
+              <audio style="height: 1.4rem;" controls>
+                <source src="{{i.freeproduct.url}}">
+              </audio>
+
+              <div class="row gx-0">
+                <div class="col buttn">
+                  <a href="{{i.freeproduct.url}}" download="">
+                    <button class="btn btn-secondary btn-sm">Download</button>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <br>
+        {% endfor %}
+
+        {% for i in getpaidFightiningsfx %}
+        <div class="col-md-4 col-sm-10">
+          <div class="player p-4">
+            <div class="wrapper">
+              <di class="col alignment">
+                <strong class="ml-1 mb-0">{{i.name}}</strong>
+              </di>
+
+            </div>
+            <audio style="height: 1.4rem;" controls>
+              <source src="{{i.paidproduct.url}}">
+            </audio>
+
+            <div class="row gx-0">
+              <div class="col text-center">
+                <small>Price: </small>
+                <small>${{i.price}}</small>
+              </div>
+
+              {% if request.user.is_authenticated %}
+              <div class="col buttn">
+                <button data-product="{{i.name}}" data-action="add"
+                  class="btn btn-primary  electricitysfx-cart btn-sm">AddtoCart</button>
+              </div>
+              {% else %}
+              <div class="col buttn">
+                <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                  data-placement="bottom" data-content="You need to login">
+                  AddtoCart
+                </button>
+              </div>
+              {% endif %}
+
+            </div>
+
+          </div>
+        </div>
+        {% endfor %}        
+
+      </div>
+
+      <div class="row" style="background-color: black;">
+
+        {% for i in getpaidlightiningvfx %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+
+            <div class="video">
+              <video loop  src="{{i.paidproduct.url}}"></video>
+            </div>
+
+
+              <div class="card-body">
+                <p class="card-text"><strong>{{i.name}}</strong></p>
+
+                <div class="row">
+                  <div class="col-6">         
+                    {% if  request.user.is_authenticated %}         
+                    <button class="btn btn-primary btn-sm electricityvfx-cart" data-product="{{i.name}}"  data-pubid="{{i.publisher}}" data-action="add" >AddtoCart</button>
+                    {% else %}
+                    <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover" data-placement="bottom" data-content="You need to login">
+                      AddtoCart
+                  </button>
+                  {% endif %}
+                  </div>
+                  <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                      <small style="color: white;" class="mr-3">Price : </small>
+                      <small style="color: white;" class="text "  >${{i.price}}</small>        
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreelightiningvfx %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+
+            <div class="video">
+              <video loop src="{{i.freeproduct.url}}" >
+              </video>
+            </div>
+
+
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{{i.freeproduct.url}}" download="">
+                   <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                  </a>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreeEnergyvfx %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+
+          <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+
+            <div class="video">
+              <video loop src="{{i.freeproduct.url}}" >
+              </video>
+            </div>
+
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{{i.file.url}}" download="">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getpaidEnergyvfx %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+          <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+
+            <div class="video">
+              <video loop  src="{{i.paidproduct.url}}"></video>
+            </div>
+
+
+            <div class="card-body">
+
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+
+              <div class="row">
+                <div class="col-6">
+                  {% if request.user.is_authenticated %}
+                  <button class="btn btn-primary btn-sm EnergyVfx-cart" data-product="{{i.name}}"
+                    data-pubid="{{i.publisher}}" data-action="add">AddtoCart</button>
+                  {% else %}
+                  <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                    data-placement="bottom" data-content="You need to login">AddtoCart</button>
+                  {% endif %}
+                </div>
+
+                <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                  <small style="color: white;" class="mr-3">Price : </small>
+                  <small style="color: white;" class="text ">${{i.price}}</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreeMuzzleFlashes %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+          <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+
+            <div class="video">
+              <video loop src="{{i.freeproduct.url}}" >
+              </video>
+            </div>
+
+
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{{i.freeproduct.url}}" download="">
+                   <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                  </a>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getpaidMuzzleFlashes %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+          <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+
+            <div class="video">
+              <video loop  src="{{i.paidproduct.url}}"></video>
+            </div>
+
+              <div class="card-body">
+                <p class="card-text"><strong>{{i.name}}</strong></p>
+
+                <div class="row">
+                  <div class="col-6">
+                    {% if  request.user.is_authenticated %}
+                    <button class="btn btn-primary btn-sm Muzzleflashes-cart" data-product="{{i.name}}" data-pubid="{{i.publisher}}" data-action="add" >AddtoCart</button>
+                    {% else %}
+                    <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover" data-placement="bottom" data-content="You need to login">
+                      AddtoCart
+                  </button>
+                  {% endif %}
+                  </div>
+                  <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                      <small style="color: white;" class="mr-3">Price : </small>
+                      <small style="color: white;" class="text "  >${{i.price}}</small>        
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreeShockwavesVfx %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+          <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+
+            <div class="video">
+              <video loop src="{{i.freeproduct.url}}" >
+              </video>
+            </div>
+
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{{i.freeproduct.url}}" download="">
+                   <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                  </a>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getpaidShockwavesVfx %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+          <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+
+            <div class="video">
+              <video loop  src="{{i.paidproduct.url}}"></video>
+            </div>
+
+
+              <div class="card-body">
+                <p class="card-text"><strong>{{i.name}}</strong></p>
+
+                <div class="row">
+                  <div class="col-6">
+                    {% if  request.user.is_authenticated %}
+                    <button class="btn btn-primary btn-sm Shockwaves-cart" data-product="{{i.name}}" data-pubid="{{i.publisher}}" data-action="add" >AddtoCart</button>
+                    {% else %}
+                    <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover" data-placement="bottom" data-content="You need to login">
+                      AddtoCart
+                  </button>
+                  {% endif %}
+                  </div>
+                  <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                      <small style="color: white;" class="mr-3">Price : </small>
+                      <small style="color: white;" class="text "  >${{i.price}}</small>        
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+
+
+        {% for i in getfreeParticleVfx %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+          <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+
+            <div class="video">
+              <video loop src="{{i.freeproduct.url}}" >
+              </video>
+            </div>
+
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{{i.freeproduct.url}}" download="">
+                   <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                  </a>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getpaidParticleVfx %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+          <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+
+            <div class="video">
+              <video loop  src="{{i.paidproduct.url}}"></video>
+            </div>
+            
+              <div class="card-body">
+                <p class="card-text"><strong>{{i.name}}</strong></p>
+
+                <div class="row">
+                  <div class="col-6">
+                    {% if  request.user.is_authenticated %}
+                    <button class="btn btn-primary btn-sm Particlesvfx-cart" data-product="{{i.name}}" data-pubid="{{i.publisher}}" data-action="add" >AddtoCart</button>
+                    {% else %}
+                    <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover" data-placement="bottom" data-content="You need to login">
+                      AddtoCart
+                  </button>
+                  {% endif %}
+                  </div>
+                  <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                      <small style="color: white;" class="mr-3">Price : </small>
+                      <small style="color: white;" class="text "  >${{i.price}}</small>        
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreeEnvironmentalVfx %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+
+            <div class="video">
+              <video loop src="{{i.freeproduct.url}}" >
+              </video>
+            </div>
+            
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{{i.freeproduct.url}}" download="">
+                   <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                  </a>
+               </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getpaidEnvironmentalVfx%}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+          <div class="card mb-4 shadow-sm videocontroller" style="background-color: #111111;">
+
+            <div class="video">
+              <video loop  src="{{i.paidproduct.url}}"></video>
+            </div>
+              <div class="card-body">
+                <p class="card-text"><strong>{{i.name}}</strong></p>
+
+                <div class="row">
+                  <div class="col-6">
+                    {% if  request.user.is_authenticated %}
+                    <button class="btn btn-primary btn-sm EnvironmentVfx-cart" data-product="{{i.name}}" data-pubid="{{i.publisher}}" data-action="add" >AddtoCart</button>
+                    {% else %}
+                    <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover" data-placement="bottom" data-content="You need to login">
+                      AddtoCart
+                  </button>
+                  {% endif %}
+                  </div>
+                  <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                      <small style="color: white;" class="mr-3">Price : </small>
+                      <small style="color: white;" class="text "  >${{i.price}}</small>        
+                  </div>
+                </div>
+
+              </div>
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getfreeDebrisAndCrackVfx %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3">
+          <div class="card mb-4 shadow-sm" style="background-color: #111111;">
+
+            <div class="video">
+              <video loop src="{{i.freeproduct.url}}" >
+              </video>
+            </div>
+
+            <div class="card-body">
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{{i.freeproduct.url}}" download="">
+                    <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        {% endfor %}
+
+        {% for i in getpaidDebrisAndCrackVfx %}
+        <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
+          <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+
+            <div class="video">
+              <video loop src="{{i.paidproduct.url}}"></video>
+            </div>
+
+            <div class="card-body">
+
+              <p class="card-text"><strong>{{i.name}}</strong></p>
+
+              <div class="row">
+                <div class="col-6">
+                  {% if request.user.is_authenticated %}
+                  <button class="btn btn-primary btn-sm DebrisAndCrackvfx-cart" data-product="{{i.name}}"
+                    data-pubid="{{i.publisher}}" data-action="add">AddtoCart</button>
+                  {% else %}
+                  <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
+                    data-placement="bottom" data-content="You need to login">
+                    AddtoCart
+                  </button>
+                  {% endif %}
+                </div>
+                <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
+                  <small style="color: white;" class="mr-3">Price : </small>
+                  <small style="color: white;" class="text ">${{i.price}}</small>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <br>
+  <br>
+  <br>
+</div>
+
+{% endblock %}

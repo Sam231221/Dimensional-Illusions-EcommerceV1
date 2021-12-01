@@ -1,0 +1,129 @@
+{% extends 'frontend_base.html' %}
+{% load static %}
+{% block title %}
+<title>DI | Sfx | Weapons </title>
+{% endblock %}
+{% block ActivateSfx %}active{% endblock %}
+
+{% block body %}
+
+<style>
+  *{
+    margin: 0;
+    padding: 0;
+  }
+    .player{
+        position: relative;
+        background: #111111;
+        border-radius: 5rem;
+        border: 1.2rem solid black;
+    }
+    .wrapper{
+        background-color:#111111;
+        color: antiquewhite;
+        position: relative;
+    }
+    audio{
+        width: 100%;
+        outline: none;
+        }
+    .buttn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .alignment{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    h1{
+    color: white;
+    font-size: 1.6rem;
+    text-align: center;
+}
+</style>
+
+<div class="container-fluid bg-set">
+  <br>
+  <h1 class="">Weapon Sound Effects</h1>
+  <div class="line-controller">
+    <hr class="" style="background-color: white;">
+    </div>
+  <div class="row gx-0 font-control" >
+
+      {% for i in getfreeWeaponSfx %}
+          <div class="col-md-4 col-sm-10">
+            <div class="player p-4">
+                <div class="wrapper">
+                  <div class="col alignment">
+                    <strong class="ml-1 mb-0">{{i.name}}</strong>
+                  </div>
+
+                <audio style="height: 1.4rem;" controls>
+                  <source src="{{i.freeproduct.url}}">
+                </audio>
+
+                <div class="row gx-0">
+                  <div class="col buttn">
+                    <a href="{{i.freeproduct.url}}" download="">
+                          <button class="btn btn-secondary btn-sm">Download</button>
+                    </a>  
+                  </div>
+                </div>  
+
+              </div>
+
+            </div>
+          </div>
+          <br>
+          
+
+        {% endfor %}
+
+        {% for i in getpaidWeaponSfx %}
+            <div class="col-md-4 col-sm-10">
+
+              <div class="player p-4">
+                  <div class="wrapper">
+                    <di class="col alignment">
+                      <strong class="ml-1 mb-0">{{i.name}}</strong>
+                    </di>
+
+                  </div>
+                  <audio style="height: 1.4rem;" controls>
+                    <source src="{{i.paidproduct.url}}">
+                  </audio>
+
+                  <div class="row gx-0">
+                    <div class="col text-center">
+                      <small>Price: </small>
+                      <small>${{i.price}}</small>
+                    </div>
+                    <div class="col buttn">
+                      {% if  request.user.is_authenticated %}
+                        <button data-product="{{i.name}}" data-pubid="{{i.publisher_Id}}" data-action="add" class="btn btn-primary  WeaponSfx-cart btn-sm">AddtoCart</button>
+                      {% else %}
+                      <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover" data-placement="bottom" data-content="You need to login">
+                        AddtoCart
+                    </button>
+                    {% endif %}
+                      </div>
+                  </div>
+
+              </div>
+
+            </div>
+            
+        {% endfor %}
+
+  </div>
+  <br>
+  <br>
+  <br>
+</div>
+
+
+
+
+{% endblock %}

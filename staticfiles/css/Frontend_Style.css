@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
+.anchor-tag{
+    text-decoration: none;
+}
+.video-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.row button{
+    font-size: .6rem;
+}
+button a{
+    font-size: .7rem;
+}
+.font-control small{
+    font-size: .65rem;
+}
+.font-control strong{
+    font-size: 1rem;
+}
+
+h2{
+    color: white;
+}
+h1{
+    color: white;
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+.font-control p{
+    font-size: 1rem;
+
+}
+
+
+/*Footer Elements Responsive*/
+.footer-elements{
+    font-size: .9rem;
+    background: #2b2b2b!important;
+
+}
+.footer-elements h2{
+    font-size: 1.6rem;
+
+}
+.footer-text{
+    font-size: .9rem;
+    color: white;
+}
+.segment-two h2{
+  color: #fff;  
+}
+.segment-three h2{
+  color: #fff;  
+}
+.segment-four h2{
+  color: #fff;  
+}
+
+.segment-two h2:before{
+    content: '|';
+    color: #007bff;
+    padding-right: 10px;
+    
+}
+.segment-two ul{
+
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.segment-two ul li{
+  
+border-bottom: 1px solid rgb(46, 46, 46);
+line-height: 40px;
+}
+.segment-two ul li a{
+    color: #fff;
+    border-bottom: 1px solid rgb(46, 46, 46);
+    text-decoration: none;
+}
+.segment-four a{
+    width: 40px;
+    height: 40px;
+    background: #494848;
+    display: inline-block;
+    border-radius: 50%; 
+}
+.segment-four a :hover{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%; 
+    background: #1184f7;
+    transition: all .2s;
+
+}
+.segment-four i{
+
+color: #fff;
+padding: 0.9rem;
+margin-top: -0.1rem;
+}
+
+.segment-four h2:before{
+    content: '|';
+    color: #007bff;
+    padding-right: 10px; 
+}
+
+.segment-three h2:before{
+    content: '|';
+    color: #007bff;
+    padding-right: 10px; 
+}
+.segment-four h2:before{
+    content: '|';
+    color: #007bff;
+    padding-right: 10px;
+    
+}
+.segment-four form input[type= submit]{
+
+    background: #007bff;
+border: none;
+padding: 3px 15px;
+margin-left: -5px;
+color: #fff;
+text-transform: uppercase;
+    
+}
+.footer-text{
+    text-align: center;
+    line-height: 30px;
+    background-color: black;
+    font-family: 'Poppins';
+}
+@media only screen and (max-width:361px) {
+.card-body .row button{
+    font-size: .5rem;
+}
+.card-body .row small{
+    font-size: .4rem;
+}
+
+}
+
+

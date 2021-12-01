@@ -1,0 +1,264 @@
+{% extends 'frontend_base.html' %}
+{% block title %}
+<title>DI | Checkout </title>
+{% endblock %}
+{% load static %}
+
+{% block body%}
+<style>
+	.cusbtn {
+		width: 100%;
+		height: 2.8rem;
+		display: block !important;
+		background-color: blueviolet !important;
+		border: none;
+		font-size: 1.1rem !important;
+	}
+
+	.cusbtn:hover {
+		background-color: rgb(122, 40, 200) !important;
+	}
+
+	.paypal-button-number-1 {
+		display: none;
+	}
+</style>
+<div class="row g-0" style="background-color:#181818 ;">
+
+	<div class="col-lg-8" style="background-color: black; border: 22px solid #181818;">
+		<div class="box-element" style="color: white;">
+			<a class="btn btn-primary" style="margin: 20px;" href="{% url 'Ehub:YourCart' %}">&#x2190; Back to Your Cart</a>
+			<hr>
+			<h2>Summary:</h2>
+			<hr style="background-color: white;">
+
+
+			{% for item in rendervfxpaidproducts %}
+			<div class="cart-row"
+				style="display:flex; align-items:flex-stretch; margin-bottom:10px; padding-bottom:20px ;border-bottom: 1px solid black ;">
+
+				<div style="flex:2">
+					<p>{{item.product.name}}</p>
+				</div>
+				<div style="flex:1">
+					<p>${{item.product.get_final_total|floatformat:2}}</p>
+				</div>
+				<div style="flex:1">
+					<p>x{{item.quantity}}</p>
+				</div>
+			</div>
+			{% endfor %}
+
+			{% for item in rendersfxpaidproducts %}
+			<div class="cart-row"
+				style="display:flex; align-items:flex-stretch; margin-bottom:10px; padding-bottom:20px ;border-bottom: 1px solid black ;">
+
+				<div style="flex:2">
+					<p>{{item.product.name}}</p>
+				</div>
+				<div style="flex:1">
+					<p>${{item.product.get_final_total|floatformat:2}}</p>
+				</div>
+				<div style="flex:1">
+					<p>x{{item.quantity}}</p>
+				</div>
+			</div>
+			{% endfor %}
+
+
+			{% for item in rendergraphicspaidproducts %}
+			<div class="cart-row"
+				style="display:flex; align-items:flex-stretch; margin-bottom:10px; padding-bottom:20px ;border-bottom: 1px solid black ;">
+
+				<div style="flex:2">
+					<p>{{item.product.name}}</p>
+				</div>
+				<div style="flex:1">
+					<p>${{item.product.get_final_total|floatformat:2}}</p>
+				</div>
+				<div style="flex:1">
+					<p>x{{item.quantity}}</p>
+				</div>
+			</div>
+			{% endfor %}			
+
+			<hr>
+
+			<h5 style="color: white;">TotalProducts: {{order.grand_totalquantity}}</h5>
+			{% if order.discountcoupon %}
+			<h5>Discount applied: {{order.discountcoupon.discount}} %</h5>
+			{% endif %}
+			<hr> 
+			<h5>Total Amount: ${{order.grand_totalamount|floatformat:2}}</h5>
+			<br>
+		</div>
+	</div>
+
+	<br>
+	<br>
+
+	<div class="col-lg-3" style="background-color: black; border: 22px solid #181818;">
+
+		<br>
+		<div class="box-element " id="payment-info">
+			<h2 class="text-center" style="color: white; font-family: poppins;">Payment Options</h2>
+			<div class="khalti-container">
+				<button class="btn btn-primary cusbtn" id="payment-button"><strong>Khalti</strong></button>
+			</div>
+			<br>
+			<div id="paypal-button-container"></div>
+
+			<form class="d-flex" action="{% url 'Ehub:AddCoupon' %}" method="POST">
+				{% csrf_token %}
+				<input class="form-control me-2" type="text" name="discountcode"  placeholder="Enter DiscountCode">
+				<input type="submit" class= "btn btn-primary" value="Reedem">
+			</form>
+
+		</div>
+		<br>
+		<br>
+
+	</div>
+
+	<br>
+	<br>
+
+</div>
+
+<!-- PayPal JavaScript SDK -->
+<script src="https://www.paypal.com/sdk/js?client-id=AUpg7Hgv4nw9CDxWQjKj8AJF4bUTShD8dYs1zXAdLI8HgtQNZ9RuHpOtWfhdfcBrcZVrngZzf9MiRvDG&disable-funding=credit"></script>
+<script>
+	paypal.Buttons({
+		style: {
+			color: 'blue',
+			shape: 'rect',
+		},
+		createOrder: function (data, actions) {
+			return actions.order.create({
+				purchase_units: [{
+					amount: {
+						value: parseFloat(total).toFixed(2)
+					}
+				}]
+			});
+		},
+
+		// Finalize the transaction(create paymnt)
+		onApprove: function (data, actions) {
+			return actions.order.capture().then(function (details) {
+				submitFormData()
+			});
+		}
+
+	}).render('#paypal-button-container');
+</script>
+
+<script type="text/javascript">
+
+	//creating a total var that holds the total amount
+	var total = '{{order.grand_totalamount}}'
+
+	if (user != 'AnonymousUser') {
+		document.getElementById('form-wrapper').classList.add("hidden");
+
+		document.getElementById('payment-info').classList.remove("hidden");
+	}
+
+	var form = document.getElementById('form')
+	csrftoken = form.getElementsByTagName('input')[0].value
+	console.log('Newtoken generated', form.getElementsByTagName('input')[0].value)
+
+	form.addEventListener('submit', function (e) {
+		e.preventDefault()
+		console.log('Form submitted...')
+		document.getElementById('form-button').classList.add("hidden");
+		document.getElementById('payment-info').classList.remove("hidden");
+	})
+
+	function submitFormData() {
+		console.log('Initiating Payment...')
+
+		var userFormData = {
+			'name': null,
+			'email': null,
+			'total': total,
+		}
+
+		if (user == 'Anonymoususer') {
+			userFormData.name = form.name.value
+			userFormData.email = form.email.value
+		}
+
+		console.log('User Info:', userFormData)
+		/*For verification  of process of order*/
+		var url = '/process_order/'
+		fetch(url, {
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'X-CSRFToken': csrftoken,
+			},
+			body: JSON.stringify({
+				'form': userFormData,
+			}),
+		})
+			.then((response) => response.json())
+			.then((data) => {
+				console.log('Sucess:', data);
+				alert('Transaction completed');
+				window.location.href = "{% url 'Ehub:download' %}"
+
+			})
+	}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<!-- Include the Khalti JavaScript SDK -->
+<script>
+	var config = {
+		"publicKey": "test_public_key_95cae5a0974c43b1a6be964395ab4853",
+		"productIdentity": "order_{{order.id}}",
+		"productName": "order_{{order.id}}",
+		"productUrl": "http://localhost:8000",
+		"paymentPreference": [
+			"KHALTI",
+			"EBANKING",
+			"MOBILE_BANKING",
+			"CONNECT_IPS",
+			"SCT",
+		],
+		"eventHandler": {
+			onSuccess(payload) {
+
+				axios.get("/khalti-verify/", {
+					params: {
+						"token": payload.token,
+						"amount": payload.amount,
+						"order_id": "{{order.id}}"
+					}
+				}).then(function (resp) {
+					if (resp.data.success == true) {
+						alert("Thanks. Payment Completed Successfully")
+						window.location.href = "{% url 'Ehub:download' %}"
+					} else {
+						alert("Sorry. Error occurred")
+						location.href = "{{request.build_absolute_uri}}"
+					}
+				})
+			},
+
+			onClose() {
+				console.log('widget is closing');
+			}
+		}
+	};
+	var checkout = new KhaltiCheckout(config);
+	var btn = document.getElementById("payment-button");
+	btn.onclick = function () {
+		// minimum transaction amount must be 10, i.e 1000 in paisa.
+		checkout.show({ amount: {{ order.grand_totalamount | floatformat:2 }} *1000});
+	}
+</script>
+
+...
+{% endblock body %}

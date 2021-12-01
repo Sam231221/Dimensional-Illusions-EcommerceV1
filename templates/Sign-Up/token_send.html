@@ -1,0 +1,44 @@
+{% extends "Sign-Up/base.html"%}
+{% load static %}
+
+{% block title %}
+<title>DI | EA Verification | TokenAuth</title>
+{% endblock %}
+
+{% block style %}
+<style>
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+{% endblock %}
+
+{% block body %}
+
+<h2 class="text-center mt-4">From DI-Team</h2>
+<div class="container">
+    <div class="card login-form">
+        <div class="card-body">
+            <h3 class="card-title text-center">We have sent an email to verify your Email and activate your DI Account.
+            </h3>
+            <div class="card-text text-center">
+                Please check your mail.
+            </div>
+
+
+            <div class="container">
+                <img src="{% static 'images/Gmail.jpg' %}">
+                <a href="https://gmail.com/" target="_blank">
+
+                    <button class="btn btn-primary">Open Gmail</button>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
