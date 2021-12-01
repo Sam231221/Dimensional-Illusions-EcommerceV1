@@ -1,0 +1,529 @@
+[
+{
+    "model": "admin.logentry",
+    "pk": 1,
+    "fields": {
+        "action_time": "2021-09-19T21:24:08.049",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "Sam",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2021-09-19T22:19:38.102",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "Sam",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 3,
+    "fields": {
+        "action_time": "2021-09-19T22:20:05.985",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "2",
+        "object_repr": "Sam",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 4,
+    "fields": {
+        "action_time": "2021-09-26T17:36:24.103",
+        "user": 1,
+        "content_type": 21,
+        "object_id": "1",
+        "object_repr": "Energy",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 5,
+    "fields": {
+        "action_time": "2021-09-26T17:37:13.681",
+        "user": 1,
+        "content_type": 22,
+        "object_id": "1",
+        "object_repr": "We could be heros",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 6,
+    "fields": {
+        "action_time": "2021-09-26T17:37:52.847",
+        "user": 1,
+        "content_type": 17,
+        "object_id": "1",
+        "object_repr": "Energy",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 7,
+    "fields": {
+        "action_time": "2021-09-26T17:38:47.579",
+        "user": 1,
+        "content_type": 18,
+        "object_id": "1",
+        "object_repr": "FantasyVortex",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 8,
+    "fields": {
+        "action_time": "2021-09-26T17:40:01.707",
+        "user": 1,
+        "content_type": 22,
+        "object_id": "1",
+        "object_repr": "We could be heros",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Watermarkproduct\", \"Watermarkfreeproduct\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 9,
+    "fields": {
+        "action_time": "2021-09-26T17:40:20.572",
+        "user": 1,
+        "content_type": 22,
+        "object_id": "2",
+        "object_repr": "MagicSpellBlast2",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 10,
+    "fields": {
+        "action_time": "2021-09-26T17:40:33.103",
+        "user": 1,
+        "content_type": 22,
+        "object_id": "1",
+        "object_repr": "MagicSpellBlast1",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Product name\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 11,
+    "fields": {
+        "action_time": "2021-09-26T17:41:41.019",
+        "user": 1,
+        "content_type": 20,
+        "object_id": "1",
+        "object_repr": "EnergyBall2",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 12,
+    "fields": {
+        "action_time": "2021-09-26T17:42:33.450",
+        "user": 1,
+        "content_type": 24,
+        "object_id": "1",
+        "object_repr": "Energyblast 1",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 13,
+    "fields": {
+        "action_time": "2021-09-26T17:46:56.098",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "1",
+        "object_repr": "3d",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 14,
+    "fields": {
+        "action_time": "2021-09-26T17:47:13.077",
+        "user": 1,
+        "content_type": 13,
+        "object_id": "2",
+        "object_repr": "Visual Effects",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 15,
+    "fields": {
+        "action_time": "2021-09-26T17:48:17.053",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "1",
+        "object_repr": "Cinema 4d Camera Tracking",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 16,
+    "fields": {
+        "action_time": "2021-09-26T17:48:45.533",
+        "user": 1,
+        "content_type": 15,
+        "object_id": "1",
+        "object_repr": "Cinema 4d Camera Tracking",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 17,
+    "fields": {
+        "action_time": "2021-09-26T17:49:26.251",
+        "user": 1,
+        "content_type": 16,
+        "object_id": "1",
+        "object_repr": "Comment by Sam",
+        "action_flag": 3,
+        "change_message": ""
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 18,
+    "fields": {
+        "action_time": "2021-09-26T17:49:53.873",
+        "user": 1,
+        "content_type": 7,
+        "object_id": "1",
+        "object_repr": "vfx123",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+        "password": "pbkdf2_sha256$216000$OLs8GozqlZBI$3q02MieVCR9t91z5pHhgNS5D/uD6MuRQVY6D1TFoPNQ=",
+        "last_login": "2021-12-01T11:49:35.988",
+        "is_superuser": true,
+        "username": "Sam",
+        "first_name": "",
+        "last_name": "",
+        "email": "",
+        "is_staff": true,
+        "is_active": true,
+        "date_joined": "2021-09-19T21:23:17.267",
+        "groups": [],
+        "user_permissions": []
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "jh9a6zjz85in382b9ltm6b31ecs5s43l",
+    "fields": {
+        "session_data": ".eJxVjDsOwjAQBe_iGllZO_5R0nMGa9dr4wBypDipEHeHSCmgfTPzXiLitta49bzEicVZgDj9boTpkdsO-I7tNss0t3WZSO6KPGiX15nz83K4fwcVe_3WIZNjq8kn5WC0HoL34BJao8ByQWSgNJpBQ0B0xlDxClMxlqzmwWnx_gDXVjej:1msIjM:qqRYpdahQOUeHu03Di0nOoirYsFMnx-iJeddR2P7AOc",
+        "expire_date": "2021-12-15T11:49:36.101"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "uqojjjttvpwr3wriuum8uem0xxp8oegg",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQRe_C2hCwMFCX7nsGMgyMVA0kpV0Z765NutDtf-_9lwi4rSVsPS9hTuIitDj9bhHpkesO0h3rrUlqdV3mKHdFHrTLqaX8vB7u30HBXr716OwZcvQONBAZToRWKyR27CNlJEsUlfeDswwKkk8eDDNnIDOYMYr3BwHVON4:1mUSef:kmX7jAj1tBLnnSU3fUCsrHJzorTymB-Wa9dgKkSvnCY",
+        "expire_date": "2021-10-10T17:34:13.197"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "zkzw0mxkx4pn871r81ryv0n5lkwfdt7y",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQRe_C2hCwMFCX7nsGMgyMVA0kpV0Z765NutDtf-_9lwi4rSVsPS9hTuIitDj9bhHpkesO0h3rrUlqdV3mKHdFHrTLqaX8vB7u30HBXr716OwZcvQONBAZToRWKyR27CNlJEsUlfeDswwKkk8eDDNnIDOYMYr3BwHVON4:1mRytr:-j3vVegywJHDZ4IoX9ZBP5QCgIo9sat7iWl9ASYvg1Y",
+        "expire_date": "2021-10-03T21:23:39.279"
+    }
+},
+{
+    "model": "Ehub.profile",
+    "pk": 2,
+    "fields": {
+        "username": 1,
+        "first_name": "samir",
+        "second_name": "shahi",
+        "email": null,
+        "image": "",
+        "gender": "Male",
+        "esewa_id": null,
+        "date_joined": "2021-09-19T22:20:05.983",
+        "auth_token": "dfdvd",
+        "is_verified": true
+    }
+},
+{
+    "model": "Ehub.discountcoupon",
+    "pk": 1,
+    "fields": {
+        "discountcode": "vfx123",
+        "discount": 30,
+        "made_on": "2021-09-26T17:49:53.849"
+    }
+},
+{
+    "model": "Ehub.order",
+    "pk": 2,
+    "fields": {
+        "profile": 2,
+        "date_ordered": "2021-09-19T22:20:32.854",
+        "complete": true,
+        "transaction_id": "1632657965.22938",
+        "discountcoupon": null
+    }
+},
+{
+    "model": "Ehub.order",
+    "pk": 3,
+    "fields": {
+        "profile": 2,
+        "date_ordered": "2021-09-26T17:51:07.798",
+        "complete": false,
+        "transaction_id": null,
+        "discountcoupon": 1
+    }
+},
+{
+    "model": "Ehub.purchasedproduct",
+    "pk": 2,
+    "fields": {
+        "profile": 2,
+        "date_purchased": "2021-09-19T22:20:32.879",
+        "complete": true,
+        "transaction_id": "1632657965.22938"
+    }
+},
+{
+    "model": "Ehub.purchasedproduct",
+    "pk": 3,
+    "fields": {
+        "profile": 2,
+        "date_purchased": "2021-09-26T17:51:07.819",
+        "complete": false,
+        "transaction_id": null
+    }
+},
+{
+    "model": "Eblog.category",
+    "pk": 1,
+    "fields": {
+        "name": "3d"
+    }
+},
+{
+    "model": "Eblog.category",
+    "pk": 2,
+    "fields": {
+        "name": "Visual Effects"
+    }
+},
+{
+    "model": "Eblog.ipmodel",
+    "pk": 1,
+    "fields": {
+        "ip": "127.0.0.1"
+    }
+},
+{
+    "model": "Eblog.post",
+    "pk": 1,
+    "fields": {
+        "title": "Cinema 4d Camera Tracking",
+        "thumbnail": "thumnails/21/CINEMA_4D_R19.024_Studio_RC_-_R19_-_aetoc4d.c4d_-_Main_06_04_2021_12_47_03_pm.png",
+        "content": "<p>Quickly and seamlessly integrate 3D elements into real-world footage with the help of Cinema 4D&rsquo;s Motion Tracker. Add 3D objects to existing environments with Camera Tracking, and create entire 3D environments from footage with the help of Scene Reconstruction. With Object Tracking, it&#39;s easy to replace real-world objects with your 3D creations, while the Camera Calibrator helps match the camera angle and perspective of a still image. These powerful tools combine to make it easy to bring elements of the real world into your 3D project.</p>\r\n\r\n<p>Combining virtual 3D elements with live footage is a standard task in 3D production. A critical factor for creating a realistic look is the precise reconstruction of the camera&rsquo;s movement. Quickly and seamlessly integrate 3D elements into real-world footage with the help of the Motion Tracker. Create a complete 3D reconstruction of the camera move in most footage with a single click. To track more complex footage you can adjust the automatic track, manually create user tracks or mask regions. Once you&rsquo;ve solved the camera, align track points to your 3D world via position, vector and planar constraints. Motion Tracker does the hard work - all you have to do is add the 3D content.</p>",
+        "author": 1,
+        "slug": "cinema-4d-camera-tracking",
+        "publish_date": "2021-09-26T17:47:17",
+        "featured": false,
+        "status": "published",
+        "previous_post": null,
+        "next_post": null,
+        "category": [
+            1,
+            2
+        ],
+        "views": [
+            1
+        ]
+    }
+},
+{
+    "model": "Mvfx.vfxcategory",
+    "pk": 1,
+    "fields": {
+        "name": "Energy"
+    }
+},
+{
+    "model": "Mvfx.freevfxproduct",
+    "pk": 1,
+    "fields": {
+        "name": "EnergyBall2",
+        "category": 1,
+        "publisher": 2,
+        "watermarkfreeproduct": "VFX/free/21/DI-_Energyball2.mp4",
+        "date_published": "2021-09-26T17:41:40.961"
+    }
+},
+{
+    "model": "Mvfx.paidvfxproduct",
+    "pk": 1,
+    "fields": {
+        "name": "FantasyVortex",
+        "publisher": 2,
+        "category": 1,
+        "price": "23.00",
+        "setdiscount": null,
+        "watermarkproduct": "VFX/free/21/DI_FantasyVortex.mp4",
+        "watermarkfreeproduct": "VFX/paid/21/DI-_FantasyVortex.mp4",
+        "date_published": "2021-09-26T17:38:47.553"
+    }
+},
+{
+    "model": "Mvfx.orderpaidvfxproduct",
+    "pk": 1,
+    "fields": {
+        "profile": 2,
+        "product": 1,
+        "order": 2,
+        "addtoDpage": 2,
+        "quantity": 1,
+        "complete": true,
+        "date_ordered": "2021-09-26T17:49:34.785",
+        "published_by": "Sam"
+    }
+},
+{
+    "model": "Msfx.sfxcategory",
+    "pk": 1,
+    "fields": {
+        "name": "Energy"
+    }
+},
+{
+    "model": "Msfx.freesfxproduct",
+    "pk": 1,
+    "fields": {
+        "name": "Energyblast 1",
+        "category": 1,
+        "publisher": 2,
+        "watermarkfreeproduct": "SFX/free/21/DI-_EnergyBlast_1.mp3",
+        "date_published": "2021-09-26T17:42:33.390"
+    }
+},
+{
+    "model": "Msfx.paidsfxproduct",
+    "pk": 1,
+    "fields": {
+        "name": "MagicSpellBlast1",
+        "publisher": 2,
+        "category": 1,
+        "price": "23.00",
+        "setdiscount": null,
+        "watermarkproduct": "SFX/free/21/Magical_Spell_Blast1.mp3",
+        "watermarkfreeproduct": "VFX/paid/21/Magical_Spell_Blast1.mp3",
+        "date_published": "2021-09-26T17:37:13.620"
+    }
+},
+{
+    "model": "Msfx.paidsfxproduct",
+    "pk": 2,
+    "fields": {
+        "name": "MagicSpellBlast2",
+        "publisher": 2,
+        "category": 1,
+        "price": "12.00",
+        "setdiscount": null,
+        "watermarkproduct": "SFX/free/21/Magical_Spell_Blast2.mp3",
+        "watermarkfreeproduct": "VFX/paid/21/Magical_Spell_Blast2.mp3",
+        "date_published": "2021-09-26T17:40:20.568"
+    }
+},
+{
+    "model": "Msfx.orderpaidsfxproduct",
+    "pk": 1,
+    "fields": {
+        "profile": 2,
+        "product": 2,
+        "order": 3,
+        "addtoDpage": 3,
+        "quantity": 1,
+        "complete": false,
+        "date_ordered": "2021-09-26T17:51:14.859",
+        "published_by": ""
+    }
+},
+{
+    "model": "taggit.tag",
+    "pk": 1,
+    "fields": {
+        "name": "3D",
+        "slug": "3d"
+    }
+},
+{
+    "model": "taggit.tag",
+    "pk": 2,
+    "fields": {
+        "name": "camera tracking",
+        "slug": "camera-tracking"
+    }
+},
+{
+    "model": "taggit.taggeditem",
+    "pk": 1,
+    "fields": {
+        "tag": 1,
+        "content_type": 15,
+        "object_id": 1
+    }
+},
+{
+    "model": "taggit.taggeditem",
+    "pk": 2,
+    "fields": {
+        "tag": 2,
+        "content_type": 15,
+        "object_id": 1
+    }
+}
+]
