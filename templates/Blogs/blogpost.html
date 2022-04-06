@@ -31,7 +31,7 @@
 
         <div class="row">
 
-          <img class="card-img-top" src="{{post.thumbnail.url}}" alt="thum'">
+          <img class="card-img-top" src="{{post.thumbnail}}" alt="thum'">
           <br><br>
           <h1 class="text  mt-4">{{post.title}}</h1>
           <span class="text-muted">
@@ -167,7 +167,7 @@
               <h4 class="text-center">Recent Posts</h4>
               {% for post in recent_posts %}
 
-              <img src="{{post.thumbnail.url}}" alt="thumbnail">
+              <img src="{{post.thumbnail}}" alt="thumbnail">
               <a href="#" class=" text-center">{{post.title}}</a>
               <small class="text-end text-muted p-2">about {{post.publish_date|timesince}} ago</small>
               <br>

@@ -2,7 +2,7 @@ from django.db import models
 from django.db.models.deletion import SET_NULL
 from Ehub.models import *
 from decimal  import Decimal
-from django.core.validators import FileExtensionValidator,MinValueValidator,MaxValueValidator
+from django.core.validators import MinValueValidator,MaxValueValidator
 
 #Create your models here.
 
@@ -19,10 +19,7 @@ class FreeSfxProduct(models.Model):
 							   ,verbose_name='Product Category'
 							   ,null=True) 
 	publisher= models.ForeignKey(Profile,on_delete=models.CASCADE,null=True)     
-	watermarkfreeproduct = models.FileField(upload_to="SFX/free/%y"
-									,help_text="Provide a Product without any Watermark included in it. Only .mp3 and .wav are accepted"
-									,validators=[FileExtensionValidator(['mp3','wav'])]
-									,null=True,blank=True)
+	watermarkfreeproduct = models.URLField(null=True)
 	date_published=models.DateTimeField(auto_now_add=True,null=True)
 	
 	def __str__(self):
@@ -41,30 +38,22 @@ class PaidSfxProduct(models.Model):
 								,validators=[MinValueValidator(Decimal('0')),MaxValueValidator(Decimal('999.99'))]
 								,decimal_places=2)
 	setdiscount=models.ForeignKey(SetDiscount,on_delete=SET_NULL,null=True,blank=True)
-	watermarkproduct = models.FileField(upload_to="SFX/free/%y"
-									,help_text="Provide a Watermark Sound Product.This product is just a showcase to Customers. Only .mp3 and .wav are accepted"
-									,validators=[FileExtensionValidator(['mp3','wav'])]
-									,null=True,blank=True)
-	watermarkfreeproduct = models.FileField(upload_to="VFX/paid/%y"
-									,help_text="Provide a Watermark free Sound Product to distribute to Customers .Only .mp3 and.wav are accepted"
-									,validators=[FileExtensionValidator(['mp3','wav'])]
-									,null=True,blank=True)
+	watermarkproduct = models.URLField(null=True)
+	watermarkfreeproduct = models.URLField(null=True)
 	date_published=models.DateTimeField(auto_now_add=True,null=True)
  
 	@property 
 	def get_final_total(self):    
 		price = float(self.price)
-		if self.setdiscount:
-				discount=float(self.setdiscount.discount/100)
-				total=price-discount*price    
-		else: 
-				total=self.price
-		return total            
+		if not self.setdiscount:
+				return self.price
+		discount=float(self.setdiscount.discount/100)
+		return  price-discount*price
+		 		             
 	 
 	@property 
 	def get_actual_total(self):    
-		total=float(self.price)
-		return total          
+		return float(self.price)         
 
 	def __str__(self):
 		return str(self.name) 
@@ -83,7 +72,6 @@ class OrderPaidSfxProduct(models.Model):  #make more orderitem
 		return str(self.product)
 
 	@property 
-	def get_total(self):    
-		total = self.product.get_final_total * self.quantity 
-		return total           
+	def get_total(self):      
+		return self.product.get_final_total * self.quantity         
 	

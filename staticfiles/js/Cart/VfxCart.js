@@ -20,7 +20,12 @@ function addCookieItem(productId, action){
 }
 
 function updatePaidVfxProduct(productName,publisherId,poid, action){  
- 
+    data = {
+        "productName": productName,
+        "publisherId":publisherId,
+        "poid":poid,
+        "action": action
+    }
      var url = '/updatevfxproducts/' 
      fetch(url,{
         method:'POST',
@@ -29,14 +34,14 @@ function updatePaidVfxProduct(productName,publisherId,poid, action){
            'X-CSRFToken': csrftoken,
  
         },
-        body:JSON.stringify({'productName': productName,publisherId:publisherId,poid:poid, action: action}) 
+        body:data
      })                                                                  //stringify is used for that
      .then((response) =>{
           return response.json()   //then we wanna send back the jsonresponse that we defined in updateItem function
      })
      .then((data) =>{
           console.log('data:',data)  //then we need to console to be able to see the JSONresponse (i.e data,Item was added.)
-          location.reload()
+
      })
  }
  

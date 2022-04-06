@@ -202,17 +202,6 @@
 
           </ul>
 
-          <form style="width: 22rem;" action="{% url 'Ehub:search' %}" method="get">
-            <div class="search-box p-2">
-              <input class="search-text" type="text" name="query" id="query" placeholder="Search Products...">
-
-              <button class="button">
-                <a class="search-btn" href="">
-                  <i class="fas fa-search"></i>
-                </a>
-              </button>
-            </div>
-          </form>
 
         </div>
 
@@ -281,7 +270,7 @@
             <div class="card mb-4 shadow-sm " style="background-color: #111111;">
 
               <div class="video">
-                <video loop src="{{i.watermarkfreeproduct.url}}">
+                <video loop src="{{i.watermarkfreeproduct}}">
                 </video>
               </div>
 
@@ -289,7 +278,7 @@
                 <p class="card-text"><strong>{{i.name}}</strong></p>
                 <div class="d-flex justify-content-between align-items-center">
                   <div class="btn-group">
-                    <a href="{{i.watermarkfreeproduct.url}}" download="">
+                    <a href="{{i.watermarkfreeproduct}}" download="">
                       <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
                     </a>
                   </div>
@@ -305,7 +294,7 @@
             <div class="card mb-4 shadow-sm " style="background-color: #111111;">
 
               <div class="video">
-                <video loop src="{{i.watermarkproduct.url}}"></video>
+                <video loop src="{{i.watermarkproduct}}"></video>
               </div>
 
 
@@ -347,24 +336,25 @@
           <!--VFX PRODUCT RENDER-->
           <h1 class="pt-3">SFX</h1>
           {% for i in getfreesfxproducts %}
-          <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
-
-            <div class="card mb-4 shadow-sm " style="background-color: #111111;">
-
-              <div class="video">
-                <video loop src="{{i.watermarkfreeproduct.url}}">
-                </video>
-              </div>
-
-              <div class="card-body">
-                <p class="card-text"><strong>{{i.name}}</strong></p>
-                <div class="d-flex justify-content-between align-items-center">
-                  <div class="btn-group">
-                    <a href="{{i.watermarkfreeproduct.url}}" download="">
-                      <button type="button" class="btn btn-sm btn-outline-secondary">Download</button>
-                    </a>
+          <div class="col-md-4 col-sm-10">
+            <div class="player p-4">
+                <div class="wrapper">
+                  <div class="col alignment">
+                    <strong class="ml-1 mb-0">{{i.name}}</strong>
                   </div>
-                </div>
+
+                <audio style="height: 1.4rem;" controls>
+                  <source src="{{i.watermarkfreeproduct}}">
+                </audio>
+
+                <div class="row gx-0">
+                  <div class="col buttn">
+                    <a href="{{i.watermarkfreeproduct}}" download="">
+                          <button class="btn btn-secondary btn-sm">Download</button>
+                    </a>  
+                  </div>
+                </div>  
+
               </div>
 
             </div>
@@ -372,36 +362,39 @@
           {% endfor %}
 
           {% for i in getpaidsfxproducts %}
-          <div class="col-6 col-sm-6 col-md-4 col-lg-3 font-control">
-            <div class="card mb-4 shadow-sm " style="background-color: #111111;">
+          <div class="col-md-4 col-sm-10">
 
-              <div class="video">
-                <video loop src="{{i.watermarkproduct.url}}"></video>
-              </div>
+            <div class="player p-4">
+                <div class="wrapper">
+                  <di class="col alignment">
+                    <strong class="ml-1 mb-0">{{i.name}}</strong>
+                  </di>
 
+                </div>
+                <audio style="height: 1.4rem;" controls>
+                  <source src="{{i.watermarkproduct}}">
+                </audio>
 
-              <div class="card-body">
+                <div class="row gx-0">
+                    <div class="col text-center">
+                      <small>Price: </small>
+                      <small>${{i.get_final_total}}</small>
+                    </div>
 
-                <p class="card-text"><strong>{{i.name}}</strong></p>
-
-                <div class="row">
-                  <div class="col-6">
-                    {% if request.user.is_authenticated %}
-                    <button class="btn btn-primary btn-sm Sfx-cart" data-product="{{i.name}}"
-                      data-pubid="{{i.publisher}}" data-poid="{{i.id}}" data-action="adpdt">AddtoCart</button>
-                    {% else %}
-                    <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover"
-                      data-placement="bottom" data-content="You need to login">AddtoCart</button>
+                    {% if  request.user.is_authenticated %}
+                    <div class="col buttn">
+                      <button data-product="{{i.name}}" data-pubid="{{i.publisher_Id}}" data-action="adpdt" class="btn btn-primary  Sfx-cart btn-sm">AddtoCart</button>
+                  </div>
+                  {% else %}
+                    <div class="col buttn">
+                        <button type="button" class="btn btn-primary" data-bs-container="body" data-bs-toggle="popover" data-placement="bottom" data-content="You need to login">
+                          AddtoCart
+                      </button>
+                    </div>
                     {% endif %}
-                  </div>
 
-                  <div class="col-6 " style="display: flex; align-items: center; justify-content: flex-end;">
-                    <small style="color: white;" class="mr-3">Price : </small>
-                    <small style="color: white;" class="text ">${{i.price}}</small>
-                  </div>
                 </div>
 
-              </div>
             </div>
           </div>
           {% endfor %}

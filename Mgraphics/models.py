@@ -19,10 +19,7 @@ class FreeGraphicsProduct(models.Model):
 							   ,verbose_name='Graphics Category'
 							   ,null=True) 
 	publisher= models.ForeignKey(Profile,on_delete=models.CASCADE,null=True)     
-	watermarkfreeproduct = models.FileField(upload_to="Graphics/free/%y"
-									,help_text="Provide a Product without any Watermark included in it. Only .png and .jpg are accepted"
-									,validators=[FileExtensionValidator(['png','jpg'])]
-									,null=True,blank=True)
+	watermarkfreeproduct = models.URLField(null=True)
 	date_published=models.DateTimeField(auto_now_add=True,null=True)
 	def __str__(self):
 		return str(self.name) 
@@ -42,14 +39,8 @@ class PaidGraphicsProduct(models.Model):
 								,validators=[MinValueValidator(Decimal('0')),MaxValueValidator(Decimal('999.99'))]
 								,decimal_places=2)
 	setdiscount=models.ForeignKey(SetDiscount,on_delete=SET_NULL,null=True,blank=True)
-	watermarkproduct = models.FileField(upload_to="Graphics/free/%y"
-									,help_text="Provide a Watermark Sound Product.This product is just a showcase to Customers. Only .png and .jpg are accepted"
-									,validators=[FileExtensionValidator(['png','jpg'])]
-									,null=True,blank=True)
-	watermarkfreeproduct = models.FileField(upload_to="Graphics/paid/%y"
-									,help_text="Provide a Watermark free Sound Product to distribute to Customers .Only png and .jpg are accepted"
-									,validators=[FileExtensionValidator(['png','jpg'])]
-									,null=True,blank=True)
+	watermarkproduct = models.URLField(null=True)
+	watermarkfreeproduct = models.URLField(null=True)
 	date_published=models.DateTimeField(auto_now_add=True,null=True)
  
 	@property 

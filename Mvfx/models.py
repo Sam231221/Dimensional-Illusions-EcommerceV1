@@ -19,10 +19,7 @@ class FreeVfxProduct(models.Model):
 							   ,verbose_name='Product Category'
 							   ,null=True) 
 	publisher= models.ForeignKey(Profile,on_delete=models.CASCADE,null=True)     
-	watermarkfreeproduct = models.FileField(upload_to="VFX/free/%y"
-									,help_text="Provide a Product without any Watermark included in it. Only .mp4 is accepted"
-									,validators=[FileExtensionValidator(['mp4'])]
-									,null=True,blank=True)
+	watermarkfreeproduct =models.URLField(null=True)
 	date_published=models.DateTimeField(auto_now_add=True,null=True)
 	
 	def __str__(self):
@@ -41,14 +38,8 @@ class PaidVfxProduct(models.Model):
 								,validators=[MinValueValidator(Decimal('0')),MaxValueValidator(Decimal('999.99'))]
 								,decimal_places=2)
 	setdiscount=models.ForeignKey(SetDiscount,on_delete=SET_NULL,null=True,blank=True)
-	watermarkproduct = models.FileField(upload_to="VFX/free/%y"
-									,help_text="Provide a WatermarkProduct.This product is just a showcase to Customers. Only .mp4 is accepted"
-									,validators=[FileExtensionValidator(['mp4'])]
-									,null=True,blank=True)
-	watermarkfreeproduct = models.FileField(upload_to="VFX/paid/%y"
-									,help_text="Provide a Watermark free Product to distribute to Customers .Only .mp4 is accepted"
-									,validators=[FileExtensionValidator(['mp4'])]
-									,null=True,blank=True)
+	watermarkproduct = models.URLField(null=True)
+	watermarkfreeproduct = models.URLField(null=True)
 	date_published=models.DateTimeField(auto_now_add=True,null=True)
  
 	@property 
@@ -60,7 +51,7 @@ class PaidVfxProduct(models.Model):
 		else: 
 				total=self.price
 		return total            
-	 
+	
 	@property 
 	def get_actual_total(self):    
 		total=float(self.price)

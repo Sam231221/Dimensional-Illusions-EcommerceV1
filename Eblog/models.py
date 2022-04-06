@@ -33,7 +33,7 @@ class Post(models.Model):
             return super().get_queryset() .filter(status='published')   
          
     title=models.CharField(max_length=250,null=True)
-    thumbnail = models.ImageField(upload_to="thumnails/%y",null=True,blank=True)
+    thumbnail = models.URLField(null=True)
     content = RichTextField(null=True,blank=True)
     author=models.ForeignKey(User,on_delete=models.CASCADE,related_name='blog_posts')
     slug=models.SlugField(max_length=250,unique=True)#it must be unique for date

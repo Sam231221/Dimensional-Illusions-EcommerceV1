@@ -16,9 +16,9 @@ def searchview(request):
 			count=getquerypost.count()
 			print(count)
 		else:
-			 getquerypost = Post.objects.none()
-			 count=getquerypost.count()
-			 print(count)
+			getquerypost = Post.objects.none()
+			count=getquerypost.count()
+			print(count)
 		context = {
 			'query':query,
 			'count':count,

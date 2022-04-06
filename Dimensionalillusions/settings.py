@@ -1,7 +1,9 @@
+import dj_database_url
 import os
 from pathlib import Path
 
 '''
+#version:3.1.1
 from environs import Env
 env=Env()
 env.read_env() # read .env file, if it exists
@@ -15,7 +17,7 @@ SECRET_KEY = '#3v6h1vd4g0@2$2%1yr*r_7udp75+%lzl7dn+qhm)@*78w*td+'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['dimensional-illusions.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['dimensional-illusions.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -26,28 +28,28 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
-     #CUSTOM  APPS
-     'Ehub.apps.EhubConfig',
-     'Eblog.apps.EblogConfig',
-     #'Edashboard.apps.EdashboardConfig',
-     
-     'Mvfx.apps.MvfxConfig',     
-     'Msfx.apps.MsfxConfig',   
-     'Mgraphics.apps.MgraphicsConfig',
-     'Mweb.apps.MwebConfig',
 
-     'mptt',
-     'ckeditor',
-     'taggit',
+    # CUSTOM  APPS
+    'Ehub.apps.EhubConfig',
+    'Eblog.apps.EblogConfig',
+    # 'Edashboard.apps.EdashboardConfig',
+
+    'Mvfx.apps.MvfxConfig',
+    'Msfx.apps.MsfxConfig',
+    'Mgraphics.apps.MgraphicsConfig',
+    'Mweb.apps.MwebConfig',
+
+    'mptt',
+    'ckeditor',
+    'taggit',
 
 ]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    
-    'whitenoise.middleware.WhiteNoiseMiddleware', 
+
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -60,8 +62,8 @@ ROOT_URLCONF = 'Dimensionalillusions.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        
-        'DIRS': [os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'templates'),],
+
+        'DIRS': [os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'templates'), ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -76,8 +78,6 @@ TEMPLATES = [
 
 
 WSGI_APPLICATION = 'Dimensionalillusions.wsgi.application'
-
-
 
 
 DATABASES = {
@@ -102,11 +102,8 @@ DATABASES = {
 '''
 
 
-
-import dj_database_url
-db_from_env=dj_database_url.config(conn_max_age=600)
+db_from_env = dj_database_url.config(conn_max_age=600)
 DATABASES['default'].update(db_from_env)
-
 
 
 AUTH_PASSWORD_VALIDATORS = [
@@ -132,31 +129,33 @@ USE_L10N = True
 USE_TZ = False
 
 
-STATIC_URL = '/staticfiles/'  #meaning- static url is /static/ which is a relative path and appears in url section .we dont need to mention statiic path in codes(links)
+DEFAULT_AUTO_FIELD = 'django.db.models.AutoField'
 
-#MUST FOR LOADIN STATIC FILES
-STATICFILES_DIRS=[         
-    os.path.join(BASE_DIR, 'staticfiles')  
-    ]
+# meaning- static url is /static/ which is a relative path and appears in url section .we dont need to mention statiic path in codes(links)
+STATIC_URL = '/staticfiles/'
 
-STATIC_ROOT=os.path.join(BASE_DIR, 'static')
+# MUST FOR LOADIN STATIC FILES
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'staticfiles')
+]
 
-#WHITENOISE CONFIGURATION FOR SERVING STATIC FILES ONLY.
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# WHITENOISE CONFIGURATION FOR SERVING STATIC FILES ONLY.
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
-#FOR SAVING IMAGES INTO THE 'static/images'
-MEDIA_ROOT =os.path.join(BASE_DIR, 'staticfiles/mediafiles')
-MEDIA_URL ='/mediafiles/'
+# FOR SAVING IMAGES INTO THE 'static/images'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'staticfiles/mediafiles')
+MEDIA_URL = '/mediafiles/'
 
 
-#SMTP CONFIGURATION
+# SMTP CONFIGURATION
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 
-#THIS IS YOUR LOGIN INFO FOR GMAIL ADDRESS
+# THIS IS YOUR LOGIN INFO FOR GMAIL ADDRESS
 EMAIL_HOST_USER = 'dimensionalassistanceteam37@gmail.com'
 EMAIL_HOST_PASSWORD = '123@gmailcom'
-
