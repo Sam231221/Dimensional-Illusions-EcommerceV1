@@ -1,9 +1,8 @@
 from django.shortcuts import render
 from Ehub.models import *
 from Mvfx.models import *
-from django.contrib import messages
-from django.http import JsonResponse,HttpResponse
-import json                              # data = json.loads(request.body) 
+
+import json                            
 
 from django.contrib.auth.decorators import login_required  #Restriciton ofp Pages (For not to display pages for anonymous user(but only logged in users))
 from Ehub import *

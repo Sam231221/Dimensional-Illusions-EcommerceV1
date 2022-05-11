@@ -399,19 +399,19 @@ def loginuser(request):
         user_obj = User.objects.filter(username=username).first()
         if user_obj is None:
             messages.error(request, 'User not found.')
-            return redirect('Ehub:login')
+            return redirect('Ehub:login-user')
 
         profile_obj = Profile.objects.filter(username=user_obj).first()
 
         if not profile_obj.is_verified:
             messages.error(
                 request, 'Your account is not verified yet .Check your mail.')
-            return redirect('Ehub:login')
+            return redirect('Ehub:login-user')
 
         user = authenticate(username=username, password=password)
         if user is None:
             messages.error(request, 'Wrong password.')
-            return redirect('Ehub:login')
+            return redirect('Ehub:login-user')
 
         login(request, user)
         return redirect('Ehub:home')
