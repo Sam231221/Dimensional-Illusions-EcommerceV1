@@ -3,7 +3,20 @@
     "model": "admin.logentry",
     "pk": 1,
     "fields": {
-        "action_time": "2021-09-19T21:24:08.049",
+        "action_time": "2022-03-23T22:07:29.186",
+        "user": 1,
+        "content_type": 17,
+        "object_id": "1",
+        "object_repr": "sfdas",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 2,
+    "fields": {
+        "action_time": "2022-03-23T22:08:03.566",
         "user": 1,
         "content_type": 9,
         "object_id": "1",
@@ -14,26 +27,13 @@
 },
 {
     "model": "admin.logentry",
-    "pk": 2,
-    "fields": {
-        "action_time": "2021-09-19T22:19:38.102",
-        "user": 1,
-        "content_type": 9,
-        "object_id": "1",
-        "object_repr": "Sam",
-        "action_flag": 3,
-        "change_message": ""
-    }
-},
-{
-    "model": "admin.logentry",
     "pk": 3,
     "fields": {
-        "action_time": "2021-09-19T22:20:05.985",
+        "action_time": "2022-03-23T22:09:27.301",
         "user": 1,
-        "content_type": 9,
-        "object_id": "2",
-        "object_repr": "Sam",
+        "content_type": 18,
+        "object_id": "1",
+        "object_repr": "awe32qedq",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -42,11 +42,11 @@
     "model": "admin.logentry",
     "pk": 4,
     "fields": {
-        "action_time": "2021-09-26T17:36:24.103",
+        "action_time": "2022-04-06T10:19:17.920",
         "user": 1,
-        "content_type": 21,
+        "content_type": 20,
         "object_id": "1",
-        "object_repr": "Energy",
+        "object_repr": "Lightining Side Entry",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -55,11 +55,11 @@
     "model": "admin.logentry",
     "pk": 5,
     "fields": {
-        "action_time": "2021-09-26T17:37:13.681",
+        "action_time": "2022-04-06T10:19:39.397",
         "user": 1,
-        "content_type": 22,
-        "object_id": "1",
-        "object_repr": "We could be heros",
+        "content_type": 20,
+        "object_id": "2",
+        "object_repr": "Energyball1",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -68,11 +68,11 @@
     "model": "admin.logentry",
     "pk": 6,
     "fields": {
-        "action_time": "2021-09-26T17:37:52.847",
+        "action_time": "2022-04-06T10:21:48.422",
         "user": 1,
-        "content_type": 17,
+        "content_type": 21,
         "object_id": "1",
-        "object_repr": "Energy",
+        "object_repr": "fighting",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -81,11 +81,11 @@
     "model": "admin.logentry",
     "pk": 7,
     "fields": {
-        "action_time": "2021-09-26T17:38:47.579",
+        "action_time": "2022-04-06T10:21:55.502",
         "user": 1,
-        "content_type": 18,
-        "object_id": "1",
-        "object_repr": "FantasyVortex",
+        "content_type": 21,
+        "object_id": "2",
+        "object_repr": "mystery",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -94,24 +94,24 @@
     "model": "admin.logentry",
     "pk": 8,
     "fields": {
-        "action_time": "2021-09-26T17:40:01.707",
+        "action_time": "2022-04-06T10:22:02.900",
         "user": 1,
-        "content_type": 22,
-        "object_id": "1",
-        "object_repr": "We could be heros",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Watermarkproduct\", \"Watermarkfreeproduct\"]}}]"
+        "content_type": 21,
+        "object_id": "3",
+        "object_repr": "thriller",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
     }
 },
 {
     "model": "admin.logentry",
     "pk": 9,
     "fields": {
-        "action_time": "2021-09-26T17:40:20.572",
+        "action_time": "2022-04-06T10:22:21.810",
         "user": 1,
-        "content_type": 22,
-        "object_id": "2",
-        "object_repr": "MagicSpellBlast2",
+        "content_type": 24,
+        "object_id": "1",
+        "object_repr": "Double Sword Slash",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -120,24 +120,24 @@
     "model": "admin.logentry",
     "pk": 10,
     "fields": {
-        "action_time": "2021-09-26T17:40:33.103",
+        "action_time": "2022-04-06T10:23:00.782",
         "user": 1,
         "content_type": 22,
         "object_id": "1",
-        "object_repr": "MagicSpellBlast1",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Product name\"]}}]"
+        "object_repr": "Multiple Sword Swing",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
     }
 },
 {
     "model": "admin.logentry",
     "pk": 11,
     "fields": {
-        "action_time": "2021-09-26T17:41:41.019",
+        "action_time": "2022-04-06T10:24:27.262",
         "user": 1,
-        "content_type": 20,
-        "object_id": "1",
-        "object_repr": "EnergyBall2",
+        "content_type": 22,
+        "object_id": "2",
+        "object_repr": "Windy Sword Slash",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -146,24 +146,24 @@
     "model": "admin.logentry",
     "pk": 12,
     "fields": {
-        "action_time": "2021-09-26T17:42:33.450",
+        "action_time": "2022-04-06T10:30:06.401",
         "user": 1,
-        "content_type": 24,
+        "content_type": 18,
         "object_id": "1",
-        "object_repr": "Energyblast 1",
-        "action_flag": 1,
-        "change_message": "[{\"added\": {}}]"
+        "object_repr": "Ground Fog",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Product name\", \"Watermarkproduct\", \"Watermarkfreeproduct\"]}}]"
     }
 },
 {
     "model": "admin.logentry",
     "pk": 13,
     "fields": {
-        "action_time": "2021-09-26T17:46:56.098",
+        "action_time": "2022-04-06T10:38:54.220",
         "user": 1,
         "content_type": 13,
         "object_id": "1",
-        "object_repr": "3d",
+        "object_repr": "Filming",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -172,11 +172,11 @@
     "model": "admin.logentry",
     "pk": 14,
     "fields": {
-        "action_time": "2021-09-26T17:47:13.077",
+        "action_time": "2022-04-06T10:39:02.010",
         "user": 1,
         "content_type": 13,
         "object_id": "2",
-        "object_repr": "Visual Effects",
+        "object_repr": "Software",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -185,11 +185,11 @@
     "model": "admin.logentry",
     "pk": 15,
     "fields": {
-        "action_time": "2021-09-26T17:48:17.053",
+        "action_time": "2022-04-06T10:39:15.996",
         "user": 1,
-        "content_type": 15,
-        "object_id": "1",
-        "object_repr": "Cinema 4d Camera Tracking",
+        "content_type": 13,
+        "object_id": "3",
+        "object_repr": "Sound Editing",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
     }
@@ -198,47 +198,99 @@
     "model": "admin.logentry",
     "pk": 16,
     "fields": {
-        "action_time": "2021-09-26T17:48:45.533",
+        "action_time": "2022-04-06T10:43:32.892",
         "user": 1,
         "content_type": 15,
         "object_id": "1",
-        "object_repr": "Cinema 4d Camera Tracking",
-        "action_flag": 2,
-        "change_message": "[{\"changed\": {\"fields\": [\"Content\"]}}]"
+        "object_repr": "Common Photoshop Shortuct keys",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
     }
 },
 {
     "model": "admin.logentry",
     "pk": 17,
     "fields": {
-        "action_time": "2021-09-26T17:49:26.251",
+        "action_time": "2022-04-06T10:48:30.628",
         "user": 1,
-        "content_type": 16,
+        "content_type": 25,
         "object_id": "1",
-        "object_repr": "Comment by Sam",
-        "action_flag": 3,
-        "change_message": ""
+        "object_repr": "nature",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
     }
 },
 {
     "model": "admin.logentry",
     "pk": 18,
     "fields": {
-        "action_time": "2021-09-26T17:49:53.873",
+        "action_time": "2022-04-06T10:48:49.224",
         "user": 1,
-        "content_type": 7,
+        "content_type": 28,
         "object_id": "1",
-        "object_repr": "vfx123",
+        "object_repr": "Landscape1",
         "action_flag": 1,
         "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 19,
+    "fields": {
+        "action_time": "2022-04-06T10:49:58.180",
+        "user": 1,
+        "content_type": 26,
+        "object_id": "1",
+        "object_repr": "Landscape2",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 20,
+    "fields": {
+        "action_time": "2022-04-06T10:50:29.012",
+        "user": 1,
+        "content_type": 26,
+        "object_id": "2",
+        "object_repr": "Landscape3",
+        "action_flag": 1,
+        "change_message": "[{\"added\": {}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 21,
+    "fields": {
+        "action_time": "2022-04-25T12:07:19.844",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "Sam",
+        "action_flag": 2,
+        "change_message": "[{\"changed\": {\"fields\": [\"Is verified\"]}}]"
+    }
+},
+{
+    "model": "admin.logentry",
+    "pk": 22,
+    "fields": {
+        "action_time": "2022-04-28T14:44:16.213",
+        "user": 1,
+        "content_type": 9,
+        "object_id": "1",
+        "object_repr": "Sam",
+        "action_flag": 2,
+        "change_message": "[]"
     }
 },
 {
     "model": "auth.user",
     "pk": 1,
     "fields": {
-        "password": "pbkdf2_sha256$216000$OLs8GozqlZBI$3q02MieVCR9t91z5pHhgNS5D/uD6MuRQVY6D1TFoPNQ=",
-        "last_login": "2021-12-01T11:49:35.988",
+        "password": "pbkdf2_sha256$320000$QmNNCBeWVKhSEKDx6C9nzu$i1qGXRuD2GvWNBlcVu/GWZP6LLI5l3FI1aBKE4Gneko=",
+        "last_login": "2022-05-12T15:25:25.384",
         "is_superuser": true,
         "username": "Sam",
         "first_name": "",
@@ -246,98 +298,129 @@
         "email": "",
         "is_staff": true,
         "is_active": true,
-        "date_joined": "2021-09-19T21:23:17.267",
+        "date_joined": "2022-03-20T23:09:49.465",
         "groups": [],
         "user_permissions": []
     }
 },
 {
     "model": "sessions.session",
-    "pk": "jh9a6zjz85in382b9ltm6b31ecs5s43l",
+    "pk": "4a695ltpc5dz1ydrqkiwdie6l07jyvwc",
     "fields": {
-        "session_data": ".eJxVjDsOwjAQBe_iGllZO_5R0nMGa9dr4wBypDipEHeHSCmgfTPzXiLitta49bzEicVZgDj9boTpkdsO-I7tNss0t3WZSO6KPGiX15nz83K4fwcVe_3WIZNjq8kn5WC0HoL34BJao8ByQWSgNJpBQ0B0xlDxClMxlqzmwWnx_gDXVjej:1msIjM:qqRYpdahQOUeHu03Di0nOoirYsFMnx-iJeddR2P7AOc",
-        "expire_date": "2021-12-15T11:49:36.101"
+        "session_data": ".eJxVjEEOwiAQAP_C2RAIWxc8evcNBNhFqgaS0p6Mf7ckPeh1ZjJv4cO2Fr91XvxM4iK0OP2yGNKT6xD0CPXeZGp1XeYoRyIP2-WtEb-uR_s3KKGXsTVRJwbjjAVSFpiUmygjWGR0FjIiQSCNO8tBq91ZVOmcJm3YmiQ-X9XlN78:1nX3rx:iP08rYgu8EPEPu5QPeEs2DgPjhAsFPm11T6-6T5TtUM",
+        "expire_date": "2022-04-06T22:14:57.590"
     }
 },
 {
     "model": "sessions.session",
-    "pk": "uqojjjttvpwr3wriuum8uem0xxp8oegg",
+    "pk": "4amml3f6d3qqnf2xcsjel56dm9gaqtbd",
     "fields": {
-        "session_data": ".eJxVjEEOwiAQRe_C2hCwMFCX7nsGMgyMVA0kpV0Z765NutDtf-_9lwi4rSVsPS9hTuIitDj9bhHpkesO0h3rrUlqdV3mKHdFHrTLqaX8vB7u30HBXr716OwZcvQONBAZToRWKyR27CNlJEsUlfeDswwKkk8eDDNnIDOYMYr3BwHVON4:1mUSef:kmX7jAj1tBLnnSU3fUCsrHJzorTymB-Wa9dgKkSvnCY",
-        "expire_date": "2021-10-10T17:34:13.197"
+        "session_data": ".eJxVjEEOwiAQAP_C2RAIWxc8evcNBNhFqgaS0p6Mf7ckPeh1ZjJv4cO2Fr91XvxM4iK0OP2yGNKT6xD0CPXeZGp1XeYoRyIP2-WtEb-uR_s3KKGXsTVRJwbjjAVSFpiUmygjWGR0FjIiQSCNO8tBq91ZVOmcJm3YmiQ-X9XlN78:1niwjV:4_OH9y_CuqolDJ8FV_-sFXEiHewQTtBEC0E5gvniJNk",
+        "expire_date": "2022-05-09T17:03:21.091"
     }
 },
 {
     "model": "sessions.session",
-    "pk": "zkzw0mxkx4pn871r81ryv0n5lkwfdt7y",
+    "pk": "agxzfozldqgllkiutr90hemqcwtbmkb6",
     "fields": {
-        "session_data": ".eJxVjEEOwiAQRe_C2hCwMFCX7nsGMgyMVA0kpV0Z765NutDtf-_9lwi4rSVsPS9hTuIitDj9bhHpkesO0h3rrUlqdV3mKHdFHrTLqaX8vB7u30HBXr716OwZcvQONBAZToRWKyR27CNlJEsUlfeDswwKkk8eDDNnIDOYMYr3BwHVON4:1mRytr:-j3vVegywJHDZ4IoX9ZBP5QCgIo9sat7iWl9ASYvg1Y",
-        "expire_date": "2021-10-03T21:23:39.279"
+        "session_data": ".eJxVjEEOwiAQAP_C2RAIWxc8evcNBNhFqgaS0p6Mf7ckPeh1ZjJv4cO2Fr91XvxM4iK0OP2yGNKT6xD0CPXeZGp1XeYoRyIP2-WtEb-uR_s3KKGXsTVRJwbjjAVSFpiUmygjWGR0FjIiQSCNO8tBq91ZVOmcJm3YmiQ-X9XlN78:1nX4AS:xEoW0gexAKUQpLMLY9Aneik2wI9kG4E8Ss_tuKEqxhI",
+        "expire_date": "2022-04-06T22:34:04.210"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "d2yh2synhiqcl1sp4fkdu0u1oc04h8y7",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQAP_C2RAIWxc8evcNBNhFqgaS0p6Mf7ckPeh1ZjJv4cO2Fr91XvxM4iK0OP2yGNKT6xD0CPXeZGp1XeYoRyIP2-WtEb-uR_s3KKGXsTVRJwbjjAVSFpiUmygjWGR0FjIiQSCNO8tBq91ZVOmcJm3YmiQ-X9XlN78:1nis76:SVOaD6bocNUWiSj4H9qygienJYRWPcjLAdih7xFAW9w",
+        "expire_date": "2022-05-09T12:07:24.832"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "f96680u0x7pdai6aeumrtm5pvuh2rbb8",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQAP_C2RAIWxc8evcNBNhFqgaS0p6Mf7ckPeh1ZjJv4cO2Fr91XvxM4iK0OP2yGNKT6xD0CPXeZGp1XeYoRyIP2-WtEb-uR_s3KKGXsTVRJwbjjAVSFpiUmygjWGR0FjIiQSCNO8tBq91ZVOmcJm3YmiQ-X9XlN78:1nX3jO:q9IKBFyHmJVIxxvDbwQB8Uyzu9tR98aGG1v1_SgTBxE",
+        "expire_date": "2022-04-06T22:06:06.121"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "g5jjuqe9sylu3537sfqig4dtxkdm0zbt",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQAP_C2RAIWxc8evcNBNhFqgaS0p6Mf7ckPeh1ZjJv4cO2Fr91XvxM4iK0OP2yGNKT6xD0CPXeZGp1XeYoRyIP2-WtEb-uR_s3KKGXsTVRJwbjjAVSFpiUmygjWGR0FjIiQSCNO8tBq91ZVOmcJm3YmiQ-X9XlN78:1njzzL:cm_QvadiVrL_XmzB9N3_zKTuuWpMJpHX4MtxQ9dzAIE",
+        "expire_date": "2022-05-12T14:44:03.747"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "i9ig71w8wiccxxjxvagtespvhaa6ka2t",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQAP_C2RAIWxc8evcNBNhFqgaS0p6Mf7ckPeh1ZjJv4cO2Fr91XvxM4iK0OP2yGNKT6xD0CPXeZGp1XeYoRyIP2-WtEb-uR_s3KKGXsTVRJwbjjAVSFpiUmygjWGR0FjIiQSCNO8tBq91ZVOmcJm3YmiQ-X9XlN78:1np5J3:B-hpGFf1cHjEaYfh0dDzOkI6zfPIugp97OL86BrU6_c",
+        "expire_date": "2022-05-26T15:25:25.540"
+    }
+},
+{
+    "model": "sessions.session",
+    "pk": "kk37nk5gze8g0re9w0t9fnjku4dimwnu",
+    "fields": {
+        "session_data": ".eJxVjEEOwiAQAP_C2RAIWxc8evcNBNhFqgaS0p6Mf7ckPeh1ZjJv4cO2Fr91XvxM4iK0OP2yGNKT6xD0CPXeZGp1XeYoRyIP2-WtEb-uR_s3KKGXsTVRJwbjjAVSFpiUmygjWGR0FjIiQSCNO8tBq91ZVOmcJm3YmiQ-X9XlN78:1nbvu1:DublDm6L7H5tFRTNbNEh6l6-d_3rdOJ4hR5ugDjGzUc",
+        "expire_date": "2022-04-20T08:45:13.385"
     }
 },
 {
     "model": "Ehub.profile",
-    "pk": 2,
+    "pk": 1,
     "fields": {
         "username": 1,
-        "first_name": "samir",
-        "second_name": "shahi",
+        "first_name": "asd",
+        "second_name": "asdas",
         "email": null,
         "image": "",
         "gender": "Male",
         "esewa_id": null,
-        "date_joined": "2021-09-19T22:20:05.983",
-        "auth_token": "dfdvd",
+        "date_joined": "2022-03-23T22:08:03.557",
+        "auth_token": "asdq3q",
         "is_verified": true
     }
 },
 {
-    "model": "Ehub.discountcoupon",
+    "model": "Ehub.order",
     "pk": 1,
     "fields": {
-        "discountcode": "vfx123",
-        "discount": 30,
-        "made_on": "2021-09-26T17:49:53.849"
-    }
-},
-{
-    "model": "Ehub.order",
-    "pk": 2,
-    "fields": {
-        "profile": 2,
-        "date_ordered": "2021-09-19T22:20:32.854",
+        "profile": 1,
+        "date_ordered": "2022-03-23T22:08:46.973",
         "complete": true,
-        "transaction_id": "1632657965.22938",
+        "transaction_id": "1650886378.584791",
         "discountcoupon": null
     }
 },
 {
     "model": "Ehub.order",
-    "pk": 3,
+    "pk": 2,
     "fields": {
-        "profile": 2,
-        "date_ordered": "2021-09-26T17:51:07.798",
+        "profile": 1,
+        "date_ordered": "2022-04-28T14:44:23.699",
         "complete": false,
         "transaction_id": null,
-        "discountcoupon": 1
+        "discountcoupon": null
+    }
+},
+{
+    "model": "Ehub.purchasedproduct",
+    "pk": 1,
+    "fields": {
+        "profile": 1,
+        "date_purchased": "2022-03-23T22:08:47.445",
+        "complete": true,
+        "transaction_id": "1650886378.584791"
     }
 },
 {
     "model": "Ehub.purchasedproduct",
     "pk": 2,
     "fields": {
-        "profile": 2,
-        "date_purchased": "2021-09-19T22:20:32.879",
-        "complete": true,
-        "transaction_id": "1632657965.22938"
-    }
-},
-{
-    "model": "Ehub.purchasedproduct",
-    "pk": 3,
-    "fields": {
-        "profile": 2,
-        "date_purchased": "2021-09-26T17:51:07.819",
+        "profile": 1,
+        "date_purchased": "2022-04-28T14:44:23.871",
         "complete": false,
         "transaction_id": null
     }
@@ -346,14 +429,21 @@
     "model": "Eblog.category",
     "pk": 1,
     "fields": {
-        "name": "3d"
+        "name": "Filming"
     }
 },
 {
     "model": "Eblog.category",
     "pk": 2,
     "fields": {
-        "name": "Visual Effects"
+        "name": "Software"
+    }
+},
+{
+    "model": "Eblog.category",
+    "pk": 3,
+    "fields": {
+        "name": "Sound Editing"
     }
 },
 {
@@ -367,18 +457,17 @@
     "model": "Eblog.post",
     "pk": 1,
     "fields": {
-        "title": "Cinema 4d Camera Tracking",
-        "thumbnail": "thumnails/21/CINEMA_4D_R19.024_Studio_RC_-_R19_-_aetoc4d.c4d_-_Main_06_04_2021_12_47_03_pm.png",
-        "content": "<p>Quickly and seamlessly integrate 3D elements into real-world footage with the help of Cinema 4D&rsquo;s Motion Tracker. Add 3D objects to existing environments with Camera Tracking, and create entire 3D environments from footage with the help of Scene Reconstruction. With Object Tracking, it&#39;s easy to replace real-world objects with your 3D creations, while the Camera Calibrator helps match the camera angle and perspective of a still image. These powerful tools combine to make it easy to bring elements of the real world into your 3D project.</p>\r\n\r\n<p>Combining virtual 3D elements with live footage is a standard task in 3D production. A critical factor for creating a realistic look is the precise reconstruction of the camera&rsquo;s movement. Quickly and seamlessly integrate 3D elements into real-world footage with the help of the Motion Tracker. Create a complete 3D reconstruction of the camera move in most footage with a single click. To track more complex footage you can adjust the automatic track, manually create user tracks or mask regions. Once you&rsquo;ve solved the camera, align track points to your 3D world via position, vector and planar constraints. Motion Tracker does the hard work - all you have to do is add the 3D content.</p>",
+        "title": "Common Photoshop Shortuct keys",
+        "thumbnail": "https://res.cloudinary.com/dcgrv6shk/image/upload/v1649221066/DI/photoshop_xfzous.jpg",
+        "content": "<p><strong>Adobe Photoshop</strong> is a&nbsp; powerful raster graphics editing software&nbsp;developed and published by Adobe Inc. for Windows and macOS. After reading this article, You&#39;ll know the most common Photoshop&nbsp;shortcut keys which can accelerate your work.</p>\r\n\r\n<p>Depending on which type of computer you have, There are keys with different names but does the same functionality&nbsp;which is as&nbsp; follows:</p>\r\n\r\n<table align=\"left\" border=\"0\" cellpadding=\"0\" cellspacing=\"0\">\r\n\t<thead>\r\n\t\t<tr>\r\n\t\t\t<th scope=\"col\"><strong>macOS</strong></th>\r\n\t\t\t<th scope=\"col\"><strong>Windows</strong></th>\r\n\t\t</tr>\r\n\t</thead>\r\n\t<tbody>\r\n\t\t<tr>\r\n\t\t\t<td>Command</td>\r\n\t\t\t<td>Ctrl</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Option</td>\r\n\t\t\t<td>Alt</td>\r\n\t\t</tr>\r\n\t\t<tr>\r\n\t\t\t<td>Delete</td>\r\n\t\t\t<td>Backspace</td>\r\n\t\t</tr>\r\n\t</tbody>\r\n</table>\r\n\r\n<p><br />\r\n<br />\r\n<br />\r\n<br />\r\n&nbsp;</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>&nbsp;Below are the most common Photoshop Shortcut keys&nbsp; :&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;&nbsp;</p>\r\n\r\n<h5><strong>1) Ctrl</strong>+<strong>&nbsp;A</strong>= Select the&nbsp;layer/object</h5>\r\n\r\n<h5><strong>2)Ctrl&nbsp;</strong>+<strong>&nbsp;D </strong>&nbsp;= Deselect all layer(s)</h5>\r\n\r\n<h5><strong>3) Shift&nbsp;</strong>+<strong>&nbsp;Control&nbsp;</strong>+<strong>&nbsp;I&nbsp;</strong>= Select the inverse of the layer.</h5>\r\n\r\n<h5><strong>4)Ctrl&nbsp;</strong>+<strong>&nbsp;Alt&nbsp;</strong>+<strong>&nbsp;A</strong>&nbsp;= Select all layers</h5>\r\n\r\n<h5><strong>5) Ctrl</strong>+<strong>&nbsp;Shift&nbsp;</strong>+<strong>&nbsp;E</strong>&nbsp;= Merge all layers</h5>\r\n\r\n<h5><strong>6) Alt&nbsp;</strong>+<strong>&nbsp;.&nbsp;</strong>&nbsp;= Select top layer</h5>\r\n\r\n<h5><strong>7) Alt&nbsp;</strong>+<strong>&nbsp;,&nbsp;</strong>= Select bottom layer</h5>\r\n\r\n<h5><strong>8) Shift&nbsp;</strong>+<strong>&nbsp;Ctrl</strong>&nbsp;+&nbsp;<strong>N&nbsp;</strong>= Create a new layer</h5>\r\n\r\n<h5><strong>9) Ctrl&nbsp;</strong>+<strong>&nbsp;G&nbsp;</strong>= Group selected layers</h5>\r\n\r\n<h5><strong>10) Ctrl&nbsp;</strong>+<strong>&nbsp;Shift&nbsp;</strong>+<strong>&nbsp;G</strong><em><strong>&nbsp;</strong></em>= Ungroup selected layers</h5>\r\n\r\n<h5><strong>11) Ctrl&nbsp;</strong>+<strong>&nbsp;E</strong>&nbsp;= Merge and flatten selected layers</h5>\r\n\r\n<h5><strong>12) Ctrl&nbsp;</strong>+<strong>&nbsp;Shift&nbsp;</strong>+<strong>&nbsp;Alt&nbsp;</strong>+<strong>&nbsp;E&nbsp;</strong>= Combine all layers into a new layer&nbsp;<em>on top of&nbsp;&nbsp;</em>the other layers. Note:</h5>\r\n\r\n<h5><strong>13) Ctrl&nbsp;</strong>+<strong>&nbsp;Alt + Mouse Drag </strong>or<strong>&nbsp;Ctrl + J</strong>&nbsp;= Duplicate layer</h5>\r\n\r\n<h5><strong>14) Ctrl&nbsp;</strong>+<strong>&nbsp;T</strong>&nbsp;= activate Transform property of layer/object.</h5>\r\n\r\n<h5><strong>15) Ctrl&nbsp; + &nbsp;</strong><strong>Z</strong>&nbsp;= Redo</h5>\r\n\r\n<h5><strong>16) Ctrl&nbsp;</strong>+ <strong>Alt+ Z</strong>= Undo one by one</h5>\r\n\r\n<h5><strong>17) Ctrl + &nbsp;</strong><strong>+ or&nbsp; Alt&nbsp;+ MouseWheelUp</strong>&nbsp;&nbsp;= = Zoom In</h5>\r\n\r\n<h5><strong>18) Ctrl&nbsp;</strong>+ <strong>-</strong><strong>&nbsp;</strong>&nbsp;<strong>or&nbsp; Alt&nbsp;+ MouseWheelDown&nbsp;</strong>=&nbsp; Zoom Out</h5>\r\n\r\n<h5><strong>19)&nbsp;Alt&nbsp;+ MouseWheelUp</strong>&nbsp;= shift right&nbsp;the layer</h5>\r\n\r\n<h5><strong>20) Alt&nbsp;+ MouseWheelDown&nbsp;</strong>= shift left&nbsp;the layer</h5>\r\n\r\n<h5><strong>21)&nbsp; Press E/B</strong>&nbsp;= Eraser/Brush tool</h5>\r\n\r\n<h5><strong>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; Note:&nbsp; { </strong>and<strong>&nbsp;&nbsp;}&nbsp;&nbsp;</strong>for Eraser/Brush Size control</h5>\r\n\r\n<h5><strong>22) Ctrl&nbsp;</strong>+ <strong>R</strong>= Ruler</h5>\r\n\r\n<h5><strong>22) Shift+Alt&nbsp;</strong>+ <strong>Mouse Left button hold and drag</strong>&nbsp;= Uniform Scaling</h5>\r\n\r\n<p><strong>23) Ctrl&nbsp; + S&nbsp;</strong>= Save&nbsp;</p>\r\n\r\n<p><strong>24)&nbsp; Shift + Ctrl&nbsp; + &nbsp;S&nbsp;</strong>= Save&nbsp; as</p>\r\n\r\n<p><strong>25)</strong> <strong>Press F</strong> = Enter/Exit fullscreen</p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>That&#39;s all for this article</p>",
         "author": 1,
-        "slug": "cinema-4d-camera-tracking",
-        "publish_date": "2021-09-26T17:47:17",
+        "slug": "common-photoshop-shortuct-keys",
+        "publish_date": "2022-04-06T10:43:03",
         "featured": false,
         "status": "published",
         "previous_post": null,
         "next_post": null,
         "category": [
-            1,
             2
         ],
         "views": [
@@ -390,122 +479,185 @@
     "model": "Mvfx.vfxcategory",
     "pk": 1,
     "fields": {
-        "name": "Energy"
+        "name": "sfdas"
     }
 },
 {
     "model": "Mvfx.freevfxproduct",
     "pk": 1,
     "fields": {
-        "name": "EnergyBall2",
+        "name": "Lightining Side Entry",
         "category": 1,
-        "publisher": 2,
-        "watermarkfreeproduct": "VFX/free/21/DI-_Energyball2.mp4",
-        "date_published": "2021-09-26T17:41:40.961"
+        "publisher": 1,
+        "watermarkfreeproduct": "https://res.cloudinary.com/dcgrv6shk/video/upload/v1649219566/DI/DI-Lightining_Side_Entry_2_pacimb.mp4",
+        "date_published": "2022-04-06T10:19:17.686"
+    }
+},
+{
+    "model": "Mvfx.freevfxproduct",
+    "pk": 2,
+    "fields": {
+        "name": "Energyball1",
+        "category": 1,
+        "publisher": 1,
+        "watermarkfreeproduct": "https://res.cloudinary.com/dcgrv6shk/video/upload/v1649219567/DI/DI-_Energyball2_nzrgk9.mp4",
+        "date_published": "2022-04-06T10:19:39.382"
     }
 },
 {
     "model": "Mvfx.paidvfxproduct",
     "pk": 1,
     "fields": {
-        "name": "FantasyVortex",
-        "publisher": 2,
+        "name": "Ground Fog",
+        "publisher": 1,
         "category": 1,
-        "price": "23.00",
+        "price": "34.00",
         "setdiscount": null,
-        "watermarkproduct": "VFX/free/21/DI_FantasyVortex.mp4",
-        "watermarkfreeproduct": "VFX/paid/21/DI-_FantasyVortex.mp4",
-        "date_published": "2021-09-26T17:38:47.553"
-    }
-},
-{
-    "model": "Mvfx.orderpaidvfxproduct",
-    "pk": 1,
-    "fields": {
-        "profile": 2,
-        "product": 1,
-        "order": 2,
-        "addtoDpage": 2,
-        "quantity": 1,
-        "complete": true,
-        "date_ordered": "2021-09-26T17:49:34.785",
-        "published_by": "Sam"
+        "watermarkproduct": "https://res.cloudinary.com/dcgrv6shk/video/upload/v1649219587/DI/Groud_level_Fog_tbnti8.mp4",
+        "watermarkfreeproduct": "https://res.cloudinary.com/dcgrv6shk/video/upload/v1649219587/DI/Groud_level_Fog_tbnti8.mp4",
+        "date_published": "2022-03-23T22:09:27.274"
     }
 },
 {
     "model": "Msfx.sfxcategory",
     "pk": 1,
     "fields": {
-        "name": "Energy"
+        "name": "fighting"
+    }
+},
+{
+    "model": "Msfx.sfxcategory",
+    "pk": 2,
+    "fields": {
+        "name": "mystery"
+    }
+},
+{
+    "model": "Msfx.sfxcategory",
+    "pk": 3,
+    "fields": {
+        "name": "thriller"
     }
 },
 {
     "model": "Msfx.freesfxproduct",
     "pk": 1,
     "fields": {
-        "name": "Energyblast 1",
+        "name": "Double Sword Slash",
         "category": 1,
-        "publisher": 2,
-        "watermarkfreeproduct": "SFX/free/21/DI-_EnergyBlast_1.mp3",
-        "date_published": "2021-09-26T17:42:33.390"
+        "publisher": 1,
+        "watermarkfreeproduct": "https://res.cloudinary.com/dcgrv6shk/video/upload/v1649219565/DI/DI-___DoubleSword_Slash_8_ay12qm.mp3",
+        "date_published": "2022-04-06T10:22:21.782"
     }
 },
 {
     "model": "Msfx.paidsfxproduct",
     "pk": 1,
     "fields": {
-        "name": "MagicSpellBlast1",
-        "publisher": 2,
+        "name": "Multiple Sword Swing",
+        "publisher": 1,
         "category": 1,
         "price": "23.00",
         "setdiscount": null,
-        "watermarkproduct": "SFX/free/21/Magical_Spell_Blast1.mp3",
-        "watermarkfreeproduct": "VFX/paid/21/Magical_Spell_Blast1.mp3",
-        "date_published": "2021-09-26T17:37:13.620"
+        "watermarkproduct": "https://res.cloudinary.com/dcgrv6shk/video/upload/v1649219565/DI/DI-___Multiple_Sword_Entry_iykv1h.mp3",
+        "watermarkfreeproduct": "https://res.cloudinary.com/dcgrv6shk/video/upload/v1649219565/DI/DI-___Multiple_Sword_Entry_iykv1h.mp3",
+        "date_published": "2022-04-06T10:23:00.694"
     }
 },
 {
     "model": "Msfx.paidsfxproduct",
     "pk": 2,
     "fields": {
-        "name": "MagicSpellBlast2",
-        "publisher": 2,
+        "name": "Windy Sword Slash",
+        "publisher": 1,
         "category": 1,
         "price": "12.00",
         "setdiscount": null,
-        "watermarkproduct": "SFX/free/21/Magical_Spell_Blast2.mp3",
-        "watermarkfreeproduct": "VFX/paid/21/Magical_Spell_Blast2.mp3",
-        "date_published": "2021-09-26T17:40:20.568"
+        "watermarkproduct": "https://res.cloudinary.com/dcgrv6shk/video/upload/v1649219564/DI/DI-___Sword_AirSwift_gmtuj4.mp3",
+        "watermarkfreeproduct": "https://res.cloudinary.com/dcgrv6shk/video/upload/v1649219564/DI/DI-___Sword_AirSwift_gmtuj4.mp3",
+        "date_published": "2022-04-06T10:24:27.239"
     }
 },
 {
     "model": "Msfx.orderpaidsfxproduct",
     "pk": 1,
     "fields": {
-        "profile": 2,
-        "product": 2,
-        "order": 3,
-        "addtoDpage": 3,
+        "profile": 1,
+        "product": 1,
+        "order": 1,
+        "addtoDpage": 1,
         "quantity": 1,
         "complete": false,
-        "date_ordered": "2021-09-26T17:51:14.859",
+        "date_ordered": "2022-04-06T10:32:27.534",
         "published_by": ""
+    }
+},
+{
+    "model": "Msfx.orderpaidsfxproduct",
+    "pk": 2,
+    "fields": {
+        "profile": 1,
+        "product": 1,
+        "order": 2,
+        "addtoDpage": 2,
+        "quantity": 1,
+        "complete": false,
+        "date_ordered": "2022-04-28T14:44:39.512",
+        "published_by": ""
+    }
+},
+{
+    "model": "Mgraphics.graphicscategory",
+    "pk": 1,
+    "fields": {
+        "name": "nature"
+    }
+},
+{
+    "model": "Mgraphics.freegraphicsproduct",
+    "pk": 1,
+    "fields": {
+        "name": "Landscape1",
+        "category": 1,
+        "publisher": 1,
+        "watermarkfreeproduct": "https://res.cloudinary.com/dcgrv6shk/image/upload/v1649221043/DI/Landscape-1280x640_mnambk.jpg",
+        "date_published": "2022-04-06T10:48:49.191"
+    }
+},
+{
+    "model": "Mgraphics.paidgraphicsproduct",
+    "pk": 1,
+    "fields": {
+        "name": "Landscape2",
+        "publisher": 1,
+        "category": 1,
+        "price": "25.00",
+        "setdiscount": null,
+        "watermarkproduct": "https://res.cloudinary.com/dcgrv6shk/image/upload/v1649221043/DI/f7409cb4cb927a8070731021600d5e20_ckqei8.jpg",
+        "watermarkfreeproduct": "https://res.cloudinary.com/dcgrv6shk/image/upload/v1649221043/DI/f7409cb4cb927a8070731021600d5e20_ckqei8.jpg",
+        "date_published": "2022-04-06T10:49:58.082"
+    }
+},
+{
+    "model": "Mgraphics.paidgraphicsproduct",
+    "pk": 2,
+    "fields": {
+        "name": "Landscape3",
+        "publisher": 1,
+        "category": 1,
+        "price": "11.00",
+        "setdiscount": null,
+        "watermarkproduct": "https://res.cloudinary.com/dcgrv6shk/image/upload/v1649221044/DI/bc7775305e8c29e3c4b8041d7e05958c_vfnvus.jpg",
+        "watermarkfreeproduct": "https://res.cloudinary.com/dcgrv6shk/image/upload/v1649221044/DI/bc7775305e8c29e3c4b8041d7e05958c_vfnvus.jpg",
+        "date_published": "2022-04-06T10:50:29.007"
     }
 },
 {
     "model": "taggit.tag",
     "pk": 1,
     "fields": {
-        "name": "3D",
-        "slug": "3d"
-    }
-},
-{
-    "model": "taggit.tag",
-    "pk": 2,
-    "fields": {
-        "name": "camera tracking",
-        "slug": "camera-tracking"
+        "name": "photoshop",
+        "slug": "photoshop"
     }
 },
 {
@@ -513,15 +665,6 @@
     "pk": 1,
     "fields": {
         "tag": 1,
-        "content_type": 15,
-        "object_id": 1
-    }
-},
-{
-    "model": "taggit.taggeditem",
-    "pk": 2,
-    "fields": {
-        "tag": 2,
         "content_type": 15,
         "object_id": 1
     }
