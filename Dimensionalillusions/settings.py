@@ -32,8 +32,8 @@ INSTALLED_APPS = [
     # CUSTOM  APPS
     'Ehub.apps.EhubConfig',
     'Eblog.apps.EblogConfig',
-    # 'Edashboard.apps.EdashboardConfig',
 
+    # 'Edashboard.apps.EdashboardConfig',
     'Mvfx.apps.MvfxConfig',
     'Msfx.apps.MsfxConfig',
     'Mgraphics.apps.MgraphicsConfig',
@@ -80,13 +80,25 @@ TEMPLATES = [
 WSGI_APPLICATION = 'Dimensionalillusions.wsgi.application'
 
 
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'dimensionalillusions',  
+        'USER': 'postgres',    
+        'PASSWORD': 'ProgrammerGodRobo123',  
+        'HOST': 'didatabase.csolgo685quk.ap-south-1.rds.amazonaws.com',
+        'PORT': '5432',
+    }
+}
+
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-'''
 
 DATABASES = {
     'default': {
