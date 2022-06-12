@@ -17,7 +17,7 @@ SECRET_KEY = '#3v6h1vd4g0@2$2%1yr*r_7udp75+%lzl7dn+qhm)@*78w*td+'
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost','dimensional-illusions.herokuapp.com','3.110.209.251','ec2-3-110-209-251.ap-south-1.compute.amazonaws.com','dimensionalillusions.com','www.dimensionalillusions.com' ,'127.0.0.1',]
+ALLOWED_HOSTS = ['localhost','dimensional-illusions.herokuapp.com','3.110.209.251','ec2-3-110-209-251.ap-south-1.compute.amazonaws.com','acadepra.com','www.acadepra.com','dimensionalillusions.com','www.dimensionalillusions.com' ,'127.0.0.1',]
 
 
 # Application definition
