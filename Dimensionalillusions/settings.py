@@ -86,7 +86,7 @@ DATABASES = {
         'NAME': 'dimensionalillusions',  
         'USER': 'postgres',    
         'PASSWORD': 'ProgrammerGodRobo123',  
-        'HOST': 'didatabase.csolgo685quk.ap-south-1.rds.amazonaws.com',
+        'HOST': 'database-1.csolgo685quk.ap-south-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
