@@ -11,8 +11,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('Ehub.urls')),
     path('', include('Eblog.urls')),
-    path('', include('Edashboard.urls')),
-
     re_path(r'^', include('Msfx.urls')),
     re_path(r'^', include('Mvfx.urls')),
 

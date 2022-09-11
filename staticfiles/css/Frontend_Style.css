@@ -34,11 +34,26 @@ h1{
 
 }
 
+.khalti-btn{
+    width: 100%;
+    background-color: rgb(164, 9, 164);
+    color: white;
+    padding: 10px;
+    transition: .9s all ease-in-out;
+}
+.khalti-btn strong{
+    font-size: 15px;
+}
+.khalti-btn:hover{
+    color: white;
+    background-color: purple;
+
+}
 
 /*Footer Elements Responsive*/
 .footer-elements{
     font-size: .9rem;
-    background: #1a1a1a!important;
+    background: #080808!important;
 
 }
 .footer-elements h2{

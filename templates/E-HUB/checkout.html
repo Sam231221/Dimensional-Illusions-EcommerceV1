@@ -11,7 +11,7 @@
 <div class="row g-0" style="background-color:#181818 ;">
 
 	<div class="col-lg-8" style="background-color: black; border: 22px solid #181818;">
-		<div class="box-element" style="color: white;">
+		<div class="box-element p-4" style="color: white;">
 			<a class="btn btn-primary" style="margin: 20px;" href="{% url 'Ehub:YourCart' %}">&#x2190; Back to Your Cart</a>
 			<hr>
 			<h2>Summary:</h2>
@@ -82,13 +82,13 @@
 	<br>
 	<br>
 
-	<div class="col-lg-3" style="background-color: black; border: 22px solid #181818;">
+	<div class="col-lg-3 p-2" style="background-color: black; border: 22px solid #181818;">
 
 		<br>
 		<div class="box-element " id="payment-info">
-			<h2 class="text-center" style="color: white; font-family: poppins;">Payment Options</h2>
+			<h4 class="text-center" style="color: white; font-family: poppins;">Payment Options</h4>
 			<div class="khalti-container">
-				<button class="btn btn-primary cusbtn" id="payment-button"><strong>Khalti</strong></button>
+				<button class="btn khalti-btn" id="payment-button"><strong>Khalti</strong></button>
 			</div>
 			<br>
 			<div id="paypal-button-container"></div>
