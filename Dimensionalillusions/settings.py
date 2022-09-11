@@ -174,5 +174,5 @@ EMAIL_USE_TLS = True
 EMAIL_PORT = 587
 
 # THIS IS YOUR LOGIN INFO FOR GMAIL ADDRESS
-EMAIL_HOST_USER = 'dimensionalassistanceteam37@gmail.com'
-EMAIL_HOST_PASSWORD = '123@gmailcom'
+EMAIL_HOST_USER = 'dimensionalassistancccceteam37@gmail.com'
+EMAIL_HOST_PASSWORD = ''
